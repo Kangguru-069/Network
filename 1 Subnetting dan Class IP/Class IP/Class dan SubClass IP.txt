@@ -1,0 +1,15 @@
+CLASS IP :
+1. Class A : 1 - 126
+2. Class B : 128 - 191
+3. Class C : 192 - 223
+4. Class D : 224 - 239
+5. Class E : 240 - 255
+
+BATASAN IP yang Boleh digunakan di jaringan IP LOKAL :
+1. 1.0.0.0     --- 10.255.255.255   ---> IP Class A
+
+2. 172.16.0.0  --- 172.31.255.255   ---> IP Class B
+
+3. 192.16.0.0  --- 192.168.255.255  ---> IP sClass C
+
+4. 169.254.0.0 --- 169.254.255.255
