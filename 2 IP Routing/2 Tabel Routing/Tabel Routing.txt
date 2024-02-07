@@ -1,0 +1,14 @@
+Tabel Routing
+
+1. Directly Connected
+   Sebuah Jaringan yang terhubung langsung ke router, 
+   sehingga router sudah mengetahui port mana yang 
+   harus digunakan untuk meneruskan paket.
+
+2. Undirectly Connected
+   Jaringan yang tidak terhubung langsung ke router, 
+   sehingga router harus mempelajari rute terbaik dan port yang digunakan
+   untuk meneruskan paket. 
+   Caranya :
+   - Manual oleh "Network Administrator"
+   - Pengumpulan informasi melalui proses dinamik dalam jaringan.
