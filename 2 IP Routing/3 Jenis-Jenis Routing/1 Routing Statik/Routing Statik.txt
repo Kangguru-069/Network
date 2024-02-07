@@ -1,0 +1,43 @@
+Jenis-Jenis Routing
+
+1. Routing Statik
+   Routing Statik adalah Sebuah Rute yang dibentuk secara manual oleh Administrator.
+   Administrator memperbarui atau mengupdate rute statik ini secara manual ketika terjadi 
+   perubahan topologi jaringan (internetwork).
+   
+   Routing ini ditentukan secara manual oleh administrator untuk mengontrol jalur routing 
+   dari IP "internnetwork" yang berfungsi meneruskan paket dari sumber ke tujuan.
+   
+   Routing Statik, umumnya digunakan untuk jalur/path dari jaringan ke sebuah "stub network"
+   (jaringan yang dibelakangnya tidak terdapat jaringan lain).
+   
+   stub network disebut juga leaf node artinya kumpulan router atau user yang berada dalam 
+   satu jaringan lokal yang sama. 
+   stub network juga merupakan jaringan yang hanya dapat diakses melalui satu rute seringkali
+   digunakan rute statik untuk keluar masuk jaringan stub.
+   
+   Catatan : Routing Statik dapat digunakan untuk koneksi ke suatu network yang tidak terhubung 
+             langsung dengan router anda. Routing statik digunakan untuk koneksi "end-to-end"
+             dan harus dikonfigurasi 2 arah.
+   
+   Konfigurasi IP Statik : "ip route Command Syntax"
+   $ ip route network [mask] {address | interface} [distance] [permanent]
+   
+   $ ip route
+   
+   "Default Route"
+   Default Route adalah tipe rute statik khusus. Sebuah "default route" adalah rute yang digunakan 
+   ketika rute dari sumber/source ke tujuan tidak dikenali atau ketika tidak terdapat informasi 
+   yang cukup dalam tabel routing ke network tujuan. 
+   
+   Keuntungan Statik Routing
+   - Jalur Routing mudah diprediksi
+   - Tidak membutuhkan proses update routing table
+   - Mudah dikonfigurasi untuk network kecil
+   
+   Kerugian Statik Routing
+   - Tidak cocok untuk network skala besar
+   - Tidak dapat beradaptasi terhadap penambahan router 
+     karena konfigurasi pada tiap router harus diubah.
+   - Tidak dapat beradpatasi terhadap munculnya link failure pada salah satu jalur.
+  
