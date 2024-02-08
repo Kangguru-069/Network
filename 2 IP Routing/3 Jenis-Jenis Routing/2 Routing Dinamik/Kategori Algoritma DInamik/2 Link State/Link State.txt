@@ -1,0 +1,13 @@
+Link State (Algoritma Djikstra)
+
+Pengiriman data akan dilihat berdasarkan metrik (Jarak, Bandwith, Cost) yang dimiliki 
+yang digunakan untuk menentukan jalur pengiriman Data dengan melihat bobot terkecil atau yang terbaik.
+
+Penentuan Metrik agar melakukan pengiriman data yang baik  maka akan dipilih Jarak, Bandwith dan Cost yang terbaik. 
+
+Pada link-state Update pada tabel routing tidak dilakukan secara berkala, update hanya akan dilakukan jika mendapatkan
+jarak, bandwith dan cost yang terbaik.
+
+Jika pada proses pengiriman data, data dikirim pada alamat yang telah digunakan maka algoritma 
+akan menentukan ulang Jarak, Bandwith dan Cost untuk menentukan kembali jalur pengiriman data. 
+

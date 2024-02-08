@@ -1,0 +1,4 @@
+HYBRID
+
+- Tidak Melakukan Broadcast
+- Broadcast hanya akan dilakukan jika terjadi perubahan topologi atau pengiriman data/link yang gagal.

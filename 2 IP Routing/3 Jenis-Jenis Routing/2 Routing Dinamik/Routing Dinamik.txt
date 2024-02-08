@@ -1,0 +1,31 @@
+2. Routing Dinamik
+   Routing Dinamik adalah Sebuah rute yang diupdate secara otomatis oleh sebuah router
+   sehingga router sudah mengetahui port dan rute yang akan dituju.
+   
+   Ketika menggunakan Routing Dinamik jika terjadi perubahan topologi pada jaringan maka 
+   rute atau port yang digunakan akan diketahui oleh jaringan penerima atau yang di terima 
+   "internnetwork".
+   
+   Routing Dinamik mengatur rute setiap paket dengan menggunakan tabel routing (tersimpan pada router).
+   tabel ini akan terupdate secara otomatis melalui routing protokol ketika topologi berubah.
+   
+   Kategori Algoritma Dinamik :
+   1. Distance Vector (Menggunakan Algoritma Bellman dan Ford-Fulkerson)
+   2. Link State (Menggunakan Algoritma Dijkstra)
+   3. Hybrid
+   
+   Klasifikasi Protokol Routing
+   - Protokol Routing Dinamis dikelompokkan berdasarkan karakteristik
+     1. RIP    |
+     2. IGRP   |
+               | ---> Digunakan dalam 1 Autonomous System (AS) yang Sama
+     3. EIGRP  |
+     4. OSPF   |
+     
+     5. BGP    | ---> Digunakan untuk koneksi antar Autonomous System (AS)
+    
+   - Autonomous System (AS) adalah kumpulan router yang berada dalam satu grup dan berada dalam satu kendali yang sama. 
+  	
+   
+   
+   

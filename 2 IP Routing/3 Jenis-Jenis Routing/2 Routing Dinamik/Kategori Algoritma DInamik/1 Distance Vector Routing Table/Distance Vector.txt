@@ -1,0 +1,24 @@
+Distance Vector (Bellman dan Ford-Fulkerson) (Jarak/Arah)
+
+- Setiap Router mengirim informasi tabel routing yang dimiliki ke router lain yang saling terhubung dengan mencari jalur yang terbaik.
+- Table routing dibuat berdasarkan informasi yang didapat/diberikan.
+- Perubahan topologi diupdate setiap 30 detik, hal ini menyebabkan perubahan suatu router mungkin tidak diketahui
+  oleh router lain sehingga terjad routing loop.
+- Routing loop menyebabkan paket dikirim berulang-ulang mengelilingi jaringan sampai paket dibuang (di drop) oleh router.
+- Jika routing loop terjadi jaringan akan dipenuhi oleh paket-paket yang tidak pernah sampaike tujuan.
+
+
+yang merupakan Protokol Distance adalah  IGRP, RIP, BGP.
+
+Nilai Metrik ---> Jika Topologinya belum lengkap maka sistem akan melakukan Update Periodik atau 
+                  update secara terus-menerus selama 30 detik yang akan mengakibatkan terjadinya routing loop.               
+                  Tetapi jika terjadinya routing loop, maka sistem akan melakukan update secara periodik 
+                  yang akan menimbulkan kelemahan dikarenakan informasi yang sama akan diupdate secara terus menerus. 
+                  Jika informasi yang sama diupdate secara terus menerus maka paket terebut akan hilang.
+                  Algoritma jenis ini rentan sekali terhadap paket loss dikarenakan akan diupdate secara terus menerus 
+                  jika topologinya belum lengkap. 
+
+
+Catatan :
+- Algoritma Bellman hanya mementingkan jaraknya saja                  
+- Hop-Count   
