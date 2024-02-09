@@ -1,0 +1,159 @@
+Jenis-Jenis Protokol Routing Dinamis
+
+A. Jenis-Jenis Protokol Routing Dinamis
+
+1. Interior Gateway Protokol (IGP)
+   1. Distance Vector
+      Protokol :
+      - RIP V1
+      - RIP V2
+      - IGRP
+   2. Link State
+      Protokol :
+      - OSPF
+      - IS-IS
+   3. Hybrid
+      Protokol 
+      - EIGRP
+   
+2. Exterior Gateway Protokol (EGP)
+   Protokol :
+   - BGP
+   
+   Compare Protocol Dinamic
+            |
+            |
+            V 
+   Menghasilkan Parameter
+            |
+            |
+            V
+   yang berisi Data / QOS (Quality Of Service).
+   Data QOS (Quality Of Service) : 
+   - Packet Loss 
+   - Delay/Latency (Jeda waktu dalam pengiriman data/informasi)
+   - Throughput 
+   - Gitter (Fiber Optik)
+
+B. Pengertian dan Fungsi Protokol
+   1. RIP (Routing Information Protocol)
+      - Merupakan protokol yang paling tua, prosesnya lambat dan sering terjadi routing loop
+      - Merupakan protokolyang memberikan routing  table berdasarkan router yang terhubung langsung. 
+        yang dimana, router selanjutnya akan  memberikan informasi ke router berikutnya yang terhubung langsung dengan
+        router tersebut. 
+      - Menggunakan Algoritma Distance Vector (Algoritma Bellman-Ford).
+      - RIP merupakan routing protokol yang menghitung jumlah hop (count hop) sebagai routing metric.
+      - Jumlah Maksimum Hop yang diperbolehkan adalah 15 Hop
+      - Tiap RIP router melakukan pertukaran informasi routing tiap 30 detik, melalui UDP port 520.
+      - RIP merupakan routing protokol yang paling mudah untuk dikonfigurasi.
+      - Untuk menghindari loop routing, digunakan teknik split horizon with poison reverse.
+      - Untuk memperbaiki kinerja dikenal split horizon
+        - Router tidak perlu mengirim data yang pernah diterima dari jalur dimana pengiriman data dilakukan.
+        - Router mengirim Routing melalui eth0, maka router tidak akan mengirim data 
+          yang pernah di dapatkan dari interface eth0
+      - Untuk mempercepat proses disebut juga trigger update
+        - Jika terjadi perubahan info routing, router akan langsung mengirimkan perubahan informasi routing, tanpa
+          menunggu waktu selang normal untuk melakukan pengiriman perubahan data.
+          
+      RIP terbagi menjadi dua bagian, yaitu: 
+
+      • RIPv1 (RIP versi 1) 
+        1. Hanya mendukung routing class-full 
+        2. Tidak ada info subnet yang di masukkan dalam data perbaikan routing 
+        3. Tidak mendukung VLSM (Variabel Length Subnet Mask) 
+        4. Adanya fitur perbaikan routing broadcast 
+
+      • RIPv2 (RIP versi 2) 
+        1. Mendukung adanya routing class-full dan class-less 
+        2. Info subnet dimasukkan dalam data perbaikan routing 
+        3. Mendukung adanya VLSM (Variabel Length Subnet Mask) 
+        4. Perbaikan routing multicast 
+        
+        Secara umum, RIPv2 tidak berbeda jauh dengan RIPv1. Perbedaan yang ada terlihat pada informasi
+        yang diberikan antar router. Pada RIPv2, informasi yang dipertukarkan terdapat autentifikasi. 
+
+       *Kelebihan RIP 
+        1. Menggunakan metode “Triggered Update” 
+        2. Memiliki timer untuk mengetahui kapan router harus kembali memberikan informasi 
+        3. Mengatur routing menggunakan RIP tidak rumit dan memberikan hasil yang cukup dapat diterima, 
+           terlebih jika jarang terjadi kegagalan link pada jaringan.
+           
+       *Kelemahan RIP
+        1. Melihat Metrik berdasarkam jumlah Hop
+        2. Akan terjadi loop routing karena terus mengupdate datanya setiap 30 detik.
+           
+   2. IGRP (Interior Gateway Routing Protokol)
+      - Routing protokol yang dikembangkan untuk mengatasi kekurangan dari protokol RIP.
+      - IGRP menggunakan Bandwith, load, delay dan reliability yang digunakan dalan pengukuran (Metric).
+      - Default, Broadcast informasi dilakukan setiap 90 detik.
+      - Jumlah Hop maksimum 255, ---> 256 (Paket Loss)
+      - IGRP adalah Protokol routing yang menggunakan Autonomous System (AS) 
+        yang dapat menentukan routing berdasarkan system interior atau exterior. 
+        Administratif Distance untuk IGRP adalah 100
+   
+   3. OSPF (Open Short Path First)
+      OSPF adalah sebuah routing protokol standar terbuka yang telah diaplikasikan oleh  sejumlah vendor jaringan-jaringan besar. 
+      OSPF adalah pilihan terbaik jika ingin melakukan pengelolaan jaringan-jaringan yang besar.       
+      OSPF ini adalah sesuatu yang disebut route  redistribution, yaitu sebuah layanan penerjemah antar routing protokol. 
+      OSPF  hanya mendukung routing IP saja, update routing akan dilakukan secara floaded  saat terjadi perubahan topologi jaringan. 
+       
+      Tujuan OSPF, Menemukan jalur terbaik berdasarkan nilai terkecil dari satu node ke node lainnya.
+      Langkahnya, menemukan node awal kemudian diberi nilai ke node-node yang terdekat satu persatu
+      dan melakukan pengembangan pencarian dari satu node ke node lainnya.
+      - Data yang berupa bit-bit dikemas menjadi paket data.
+      - Setiap Router menguodate tabel routing
+      - Setiap mengupdate, sebuah router memberitahukan pada router lainnya jarak dari router tesebut.
+      - Setelah tiap router mendapat informasi jarak, maka Algoritma Djikstar akan menghitung semua jarak yang akan
+        dikirimkan menuju alamat tujuan.
+      - Algoritma mecari best path ke alamat tujuan, jika menemukan alamat yang dituju maka tiap router mengupdate
+        informasi ke tabel routing, jika tidak algoritma akan menghitung ulang untuk mencari best path.
+      - Jika Semua router telah dihitung/dilakukan pengecekan, maka proses selesai, jika belum router akan memberi
+        tahu kembali router lainnya.      
+      
+      *Kelebihan OSPF 
+       1. Tidak menghasilkan routing loop
+       2. Mendukung penggunaan beberapa metrik sekaligus 
+       3. Bisa menghasilkan banyak jalur ke tujuan untuk membagi jaringan yang  besar menjadi beberapa area 
+       4. Waktu yang di perlukan untuk konvergen lebih cepat 
+       
+   4. EIGRP (Enhanced Interior Gateway Routing Protocol)
+      Protokol routing ini menggunakan algoritma advanced distance vector dan  menggunakan cost load balancing yang tidak sama. 
+      Algoritma yang dipakai adalah  kombinasi antara distance vector dan link-state, serta menggunakan Diffusing 
+      Update Algorithm (DUAL) untuk menghitung jalur terpendek. Broadcast-broadcast  EIGRP di update setiap 90 detik ke semua router EIGRP yang berdekatan. 
+      Setiap  update hanya memasukkan perubahan jaringan. 
+      EIGRP sangat cocok untuk diterapkan pada jaringan komputer yang besar. IGRP  dan EIGRP sama-sama sudah mempertimbangkan masalah bandwith yang ada dan  delay yang terjadi. 
+
+      *Kelebihan EIGRP 
+       1. Melakukan konvergensi secara tepat ketika menghindari loop 
+       2. Memerlukan lebih sedikit memori dan proses 
+       3. Adanya fitur “Loop Avoidance” 
+       
+       
+    5. BGP (Border Gateway Protokol) 
+       BGP memiliki kemampuan untuk melakukan  pengumpulan rute, menyalin tabel routing dari router ke router, pertukaran rute dan menentukan rute terbaik menuju ke sebuah lokasi dalam sebuah jaringan. 
+       Yang membedakan BGP dengan routing protocol lain  adalah BGP termasuk ke dalam kategori routing protocol jenis Exterior Gateway  Protocol (EGP). 
+       BGP merupakan “distance vector exterior gateway protocol” yang  bekerja secara cerdas untuk merawat path-path ke jaringan lainnya. 
+
+       Update – update akan dikirim melalui koneksi TCP. Protokol ini biasa digunakan untuk menghubungkan antara ISP dengan ISP atau antara client dengan client lainnya. 
+       Protokol ini digunakan untuk membuat rute trafik internet antar autonomous system. 
+       
+       Tujuan utama BGP adalah untuk menjaga keamanan Data/Informasi yang dikirimkan, agar data yang dikirimkan benar-benar sampai ke tujuan yang tepat. 
+      
+       *Kelebihan BGP
+        1. Sangat sederhana dalam proses instalasi   
+        
+        
+C. Metrik yang digunakan pada setiap protokol
+   1. RIP 
+      - Hop Count
+   2. IGRP dan EIGRP 
+      - Bandwith (used by default) 
+      - Delay (used by default) 
+      - Load 
+      - Reliability
+   3. IS-IS dan OSPF 
+      - Cost
+      - Bandwith (Cisco Implementation)     
+  
+    
+    
