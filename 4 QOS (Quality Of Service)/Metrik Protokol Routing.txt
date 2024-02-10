@@ -1,0 +1,11 @@
+Metrik pada Protokol Routing
+
+- Bandwith
+- Cost
+- Delay
+- Hop Count
+- Load
+- Reliability
+
+Load Balancing
+- Kemampuan dari router mendistribusikan paket diantara jalut yang memiliki cost yang sama.

@@ -1,0 +1,100 @@
+Parameter Quality Of Service
+
+Parameter-parameter QoS pada jaringan :
+- Latency (Delay)
+  Banyaknya waktu yang diperlukan sebuah paket untuk melakukan perjalanan dari sumber ke tujuan. 
+  Pengguna biasanya bisa merasakan delay dari 150 ms atau lebih.
+  
+  Empat sumber terjadinya packet delay :
+  1. Nodal Processing (pada router)
+     - Cek bit errors
+     - Menentukan Output Link
+     - Orde waktu microdetik atau bahkan kurang
+  
+  2. Queueing (Antrian)
+     - Waktu menunggu pada output link untuk ditranmisikan
+     - Orde waktu tergantung pada tingkat kepadatan trafik dalam router
+     Mekanisme Packet Forwarding
+     - Queueing & Scheduling
+        - Queueing   : Mengatur penempatan paket sebelum diteruskan ke output interface
+        - Scheduling : Mengatur penggunaan sumber daya jaringan secara bersamaan
+     - Jenis-jenis queuing dan scheduling
+        - FIFO
+          - antrian Tunggal
+          - paket yang datang lebih dulu diproses terlebih dahulu (FIFS)
+          - Bekerja baik jika tidak ada congestion
+        - Fair Queuing (FQ)
+          - Paket-paket yang datang dibagi ke dalam beberapa kelas antrian
+          - Setiap antrian memperoleh jadwal pelayanan secara round robin
+        - Weighted Fair Queing (WFQ)
+          - Paket Kecil mendapat nilai yang besar
+          - Prinsip fair queing : setiap n paket kecil, dikirim 1 paket besar (n > 1)
+          - Contoh : Paket A = 100 byte, Paket B = 50 byte. Setiap 2 Paket B dikirm 1 Paket A
+          - Paket VoIP umumnya berukuran kecil
+          
+  3. Transmision Delay
+     - R = Link Bandwith (bps)
+     - L = Packet Lebgth (bits)
+     - Waktu untuk mengirim paket pada link = L/R
+     - Orde waktu microdetik atau milidetik
+        
+  4. Propagation Delay
+     - d = panjang link fisik
+     - s = kecepatan propagasi
+       (~2x10pangkat8 m/s)
+     - propagation delay = d/s
+     - Orde waktu untuk Widearea, milidetik
+
+- Jitter (Fiber Optik)
+  Variasi Delay yang diakibatkan oleh panjang queue dalam suatu pengolahan data dan 
+  reassemble paket-paket data diakhir pengiriman akibat kegagalan sebelumnya. 
+  Jitter diantara titik awal dan akhir komunikasi harus < 150ms dan untuk wireless < 5ms
+  
+- Packet Loss
+  - Packet Loss adalah jumlah banyaknya paket yang hilang dari paket total. 
+    Packet Loss dapat disebabkan oleh kemacetan jaringan, yang menghasilkan paket drop. Penyebab kerugian lainnya adalah adanya
+    saluran komunikasi yag buruk, terutama di saluran nirkabel. 
+    1. Congestion
+    2. Node yang bekerja melebihi kapasitas buffer
+    3. Memory yang terbatas pada node
+  Packet Loss pada jaringan terjadi
+  1. Ketika trafik pada router sangat padat
+     - Buffer/traffik pada router penuh. Terjadinya trafik router yang penuh biasa jika menggunakan Datagram.
+     - Tanpa prioritas : paket yang baru datang akan di-drop/dibuang
+     
+  2. Ketika jumlah hop yang dilalui terlalu banyak
+     - Pada IP header terdapat parameter TTL (Time To Leave)
+     - TTL berisi jumlah Hop yang boleh dilalui paket sampai ke tujuan. 
+       Setiap sampai di suatu hop angka TTL dikurangi 1.
+     - Jika Jumlah hop yang dilewati sudah melebihi angka dalam TTL, maka paket dibuang. 
+       Delay dianggap sudah terlalu lama dan kemungkinan ada kesalahan pada routing.
+  
+  Packet Loss terjadi jika jumlah TTL < Jumlah Node. 
+  
+  Teknik yang Dilakukan jika terjadi Packet Loss atau sering disebut juga dengan Recovery Data
+  1. Pengiriman ulang paket pada transport layer
+  2. Koreksi kesalahan pada Physical layer
+  3. Penggunaan codec di Application layer
+  
+- Echo
+  Sebuah Gelombang yang dipantulkan pada 1 atau banyak titik dalam media transmisi 
+  dimana magnitude tertentu dan perbedaan waktu dirasakan dalam beberapa perubahan gelombang 
+  berbeda dengan pengiriman yang utama.
+  
+  gelombang echo bisa dideteksi oleh pendengaran manusia ketika delay = 10 ms atau lebih. Echo seharusnya tidak boleh > 65 ms
+
+- Throughput
+  Total waktu yang digunakan untuk mengirim paket dengan sukses persatuan waktu tertentu.
+  Rumus :
+  S = Jumlah paket sukses x waktu transmisi paket / lama pengamatan
+  
+  waktu transmisi paket terdiri dari dua komponen yaitu waktu paket (t paket ) dan delay propagasi (t prop)
+  Rumus :
+  t transmisi = t paket  + t prop
+                (All Bit)  (1 Bit)
+- dll
+
+Parameter-Parameter QoS pada profile user :
+- VVIP
+- VIP
+- User Biasa

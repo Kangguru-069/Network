@@ -1,0 +1,71 @@
+Jenis QoS Pada Jaringan
+
+1. Best Effort -> Kareakteristik dasar Jaringan IP
+   - Memberikan Kualitas layan sebaik mungkin berdasarkan sumber daya yang ada pada jaringan.
+     Karakteristik :
+     - Antrian FIFO
+     - Tanpa Garansi
+     - Tanpa Pembedaan Traffik
+
+2. Differentiated Services (Difserv), disebut juga Soft QoS
+   - Memberikan kualitas layanan melalui pembagian paket-paket ke dalam kelas-kelas (forwarding classes),
+     yang memiliki perbedaan drop priority dan alokasi bandwith.
+   - Penanganan yang lebih baik kepada trafik-trafik tertentu (penanganan paket lebih cepat, 
+     rata-rata bandwith yang didapat lebih besar, rata-rata paket loss berkurang);
+
+3. Integrated Sevice, disebut juga Hard QoS
+   - Secara Khusus melakukan reservasu sumber daya jaringan bagi traffik tertentu. 
+     Kualitas layanan diberikan melalui alokasi bandwith secara end-to-end.
+   - Mekanisme : Protokol Reservasi RSVP
+   
+   Integrated Services
+   - Melakukan alokasi bandwith end-to-end sebelum informasi dikirimkan dengan cara reservasi 
+     sumber daya jaringan.
+   - Aplikasi harus membuat reservasi terlebih dahulu sebelum mengirimkan trafik data.
+   - Aplikasi mengiformasikan karakteristik trafiknya dan kebutuhan sumber daya.
+   - Jaringan menggunakan protokol routing untuk menemukan jalur yang dapat dilalui.
+   - Reservation Protocol digunakan untuk menetapkan status reservasi di setiap jalur yang akan dilewati.
+   - Pada setiap hop, admission control memeriksa apakah tersedia sumber daya yang cukup untuk menerima
+     reservasi baru.
+   - Resources reservation ditentukan oleh klasifikasi paket dan mekanisme scheduling
+   - Dua model layanan yang digunakan : Guaranteed Service dan Controlled Load. 
+   
+   RSVP (Resource Reservation Protocol)
+   - Alokasi bandwith end-to-end sebelumpaket dikirimkan 
+   - Sifat :
+     - Simple (Satu Arah)
+     - Receiver Oriented (aktivasi RSVP oleh penerima)
+     - mendukung pengiriman unicast dan multicast
+     - tidak menentukan routing, tetapi bekerja sama dengan protokol routing yang ada.
+   - Jenis RSVP
+     - Controlled Load
+     - memberikan alokasi bandwith
+     - tidak memberikan garansi delay  
+   - Guaranteed Service
+     - Memberikan alokasi bandwith
+     - Memberikan Garansi Delay Maksimum
+     
+   
+   LFI - Link Fragmentation nd Interleaving
+   - Fragmentation 
+     - Paket data yang besar dibagi menjadi paket yang relatif kecil.
+   - Interleaving
+     - Melakukan perhitungan nilai dan menempatkan paket-paket pada porsi yang tepat. (WFQ) 
+   
+
+Klasifikasi Traffik
+- IP Precedence
+  - Menggunakan 3 bit Type of Service (ToS) pada IP Header. 
+  - Dengan IP Precedence dapat diklasifikasikan 6 jenis trafik (ditambah 2 klasifikasi sebagai cadangan)
+  - Mekanisme antrian di seluruh jaringan dapat memanfaatkan IP Precedence untuk penanganan khusus bagi
+    trafik-trafik tertentu, seperti VoIP.
+    
+
+
+
+
+    
+
+
+
+

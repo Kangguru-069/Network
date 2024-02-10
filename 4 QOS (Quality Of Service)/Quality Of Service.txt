@@ -1,0 +1,32 @@
+Quality Of Service
+
+- QoS adalah Kemampuan penyediaan jaminan sumber daya dan pembedaan layanan (Service Diffrentiation) 
+  pada berbagai jenis aplikasi sehingga performa dari aplikasi terhadap delay, jitter atau paket loss
+  dapat berjalan dengan baik.
+ 
+- QoS dapat disediakan melalui pemberian prioritas terhadap suatu paket terhadap paket lainnya melalui 
+  alokasi sumber daya yang ada untuk aliran/paket berbeda dalam suatu jaringan.
+  
+- Tujuan utama QoS : memeberikan prioritas kepada traffik tertentu yang mencakup bandwith yang tetap, 
+  delay serta jitter yang terkontrol dan pengurangan packet loss.
+  Untuk mengatasi kekurangan pada jaringan yang bersifat IP.
+
+---------------------------------------------------------------------------------------------------------------------------
+- Jaringan IP umumnya digunakan untuk aplikasi yang tidak bergantung pada waktu, sepeti e-mail & file transfer.
+- Jaringan IP tidak dapat menyediakan jaminan sumber daya yang ada dijaringan: layanannya adalah best effort.
+- Jaringan IP tidak menyediakan service differentiation : seluruh paket mendapat perlakuan yang sama.
+- Saat ini banyak bermunculan aplikasi-aplikasi real time seperti : aplikasi VoIP, Video Conferencing, 
+  yang bergantung pada waktu. Aplikasi-aplikasi tersebut membutuhkan persyaratan delay, packet loss dan 
+  jitter yang rendah.
+  Dibutuhkan pembedaan perlakuan paket untuk jenis-jenis aplikasi tertentu.
+
+----------------------------------------------------------------------------------------------------------------------------  
+Karateristik dasar Jaringan IP
+- Menggunakan model layanan best-effort
+- Tidak ada jaminan waku dan pengiriman
+- Terdapat perbedaan dalam penerimaan layanan
+- Adanya permasalahan network congestion.
+- Waktu respon jaringan tidak dapat diprediksi
+
+- Untuk mendukung QoS, jaringan harus mengalokasikan sumber daya dan perangkat yang tersedia 
+  serta memutuskan seberapa besar sumber daya tersebut dialokasikan sesuai dengan kebutuhan.

@@ -1,0 +1,26 @@
+Transport pada sebuah jaringan
+
+1. TCP (digunakan pada Virtual Path)
+   - ACK  --> Signal ketika packet telah sampai atau diterima
+   - NACK --> Signal yang diterima ketika paket tidak sampai atau packet loss
+   - bersifat Reliable artinya semua paket harus sampai pada penerima tanpa error, jika paket tidak sampai/error maka akan dikirim ulang.
+   - Dapat melakukan vritual connection atau logical connection.
+
+2. UDP (digunakan pada Datagram)
+   - ACK  --> Signal ketika packet telah sampai atau diterima
+   - NACK --> Signal yang diterima ketika paket tidak sampai atau packet loss
+   - bersifat Unreliable artinya jika terjadi error maka paket tidak di kirim ulang
+   - pengiriman data tidak mempertimbangkan TTL dan Bandwith yang dimiliki 
+     sehingga jika TTL atau Bandwith yang dimiliki habis maka paket yang dikirimkan 
+     tidak akan sampai ke tujuan.  
+   
+   
+Keadaan atau Kondisi sebuah jalur dapat dilihat melalui "Tabel Routing".
+
+---------------------------------------------------------------------------------------------------------------------------
+QOS     --> Sharing Bandwith (Virtual Connection/Logical Connection) --> Komunikasi bisa dilakukan lebih dari 2 orang
+-------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------
+Seluler --> Bersifat Dedicated (Voice) --> Komunikasi hanya bisa dilakukan oleh 2 orang.
+-------------------------------------------------------------------------------------------
