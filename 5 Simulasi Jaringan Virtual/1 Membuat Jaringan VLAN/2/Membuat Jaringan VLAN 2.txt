@@ -1,4 +1,5 @@
-Membuat Jaringan VLAN 100, 200, 300 dan 400 di 3 Lantai Menggunakan 3 Switch  
+Membuat Jaringan VLAN 100, 200, 300 dan 400 di 3 Lantai Menggunakan 3 Switch
+Router yang digunakan : Router Cisco 1700
 
 1. Setting Router
    VLAN 100
