@@ -1,12 +1,13 @@
 Membuat Jaringan VLAN
-Router yang digunakan : Router Cisco 1700
+Router yang digunakan : Router Cisco 3600
 
 1. Setting Router
    VLAN 1 
    R1>enable
    R1#configure terminal
-   R1(config)#interface Ethernet 0
-   R1(config-subif)#interface Ethernet 0.90 
+   R1(config)#interface Ethernet 0/0   
+   R1(config-subif)#interface Ethernet 0/0.123
+   R1(config-subif)#encapsulation dot1q 100
    R1(config-subif)#ip address 10.10.123.1 255.255.255.0
    R1(config-subif)#end
    R1(config-if)#exit
@@ -16,8 +17,9 @@ Router yang digunakan : Router Cisco 1700
    VLAN 2
    R1>enable
    R1#configure terminal
-   R1(config)#interface Ethernet 0
-   R1(config-subif)#interface Ethernet 0.90
+   R1(config)#interface Ethernet 0/0
+   R1(config-subif)#interface Ethernet 0/0.124
+   R1(config-subif)#encapsulation dot1q 200
    R1(config-subif)#ip address 10.10.124.1 255.255.255.0
    R1(config-subif)#end
    R1(config-if)#exit
@@ -28,8 +30,9 @@ Router yang digunakan : Router Cisco 1700
    VLAN 3
    R1>enable
    R1#configure terminal
-   R1(config)#interface Ethernet 0
-   R1(config-subif)#interface Ethernet 0.90
+   R1(config)#interface Ethernet 0/0
+   R1(config-subif)#interface Ethernet 0/0.125
+   R1(config-subif)#encapsulation dot1q 300
    R1(config-subif)#ip address 10.10.125.1 255.255.255.0
    R1(config-subif)#end
    R1(config-if)#exit
