@@ -1,3 +1,6 @@
+Membuat Jaringan VLAN
+Router yang digunakan : Router Cisco 1700
+
 1. Setting Router
    VLAN 1 
    R1>enable
