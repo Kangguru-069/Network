@@ -1,0 +1,88 @@
+Membuat Jaringan Inter VLAN
+Router yang digunakan : Cisco 3600
+
+A. Setting Router
+   1. Mengaktifkan Ethernet 0/0
+      R1#config terminal
+      R1(config)#interface Ethernet 0/0
+      R1(config-if)#no shutdown (Mengaktifkan Ethernet 0/0)
+      R1(config-if)#exit
+      R1(config)#exit
+      R1#show ip interface brief
+   
+   2. Membuat IP Address VLAN 100, 200, 300
+      VLAN 100
+      R1#config terminal 
+      R1(config)#interface Ethernet0/0.11
+      R1(config-subif)#encapsulation dot1q 100
+      R1(config-subif)#ip address 172.31.11.1 255.255.255.0
+      R1(config-subif)#exit
+      R1(config)#exit
+      R1#show ip interface brief
+      
+      VLAN 200
+      R1#config terminal 
+      R1(config)#interface Ethernet0/0.21
+      R1(config-subif)#encapsulation dot1q 200
+      R1(config-subif)#ip address 172.31.21.1 255.255.255.0
+      R1(config-subif)#exit
+      R1(config)#exit
+      R1#show ip interface brief
+   
+      VLAN 300
+      R1#config terminal 
+      R1(config)#interface Ethernet0/0.31
+      R1(config-subif)#encapsulation dot1q 300
+      R1(config-subif)#ip address 172.31.31.1 255.255.255.0
+      R1(config-subif)#exit
+      R1(config)#exit
+      R1#show ip interface brief
+      
+   3. Menyimpan Konfigurasi
+      R1#write
+      atau
+      R1#copy running-config startup-config
+      Destination filename[startup-config]? enter
+      
+      
+B. Setting PC
+   SWITCH 1
+   VLAN 100
+   PC-1
+   PC1>ip 172.31.11.2/24 172.31.11.1
+   PC1>show ip
+   PC1>save
+   
+   VLAN 200
+   PC-2
+   PC1>ip 172.31.21.2/24 172.31.21.1
+   PC1>show ip
+   PC1>save
+        
+   VLAN 300
+   PC-3
+   PC1>ip 172.31.31.2/24 172.31.31.1
+   PC1>show ip
+   PC1>save
+   
+   
+   SWITCH 2
+   VLAN 100
+   PC-4
+   PC1>ip 172.31.11.4/24 172.31.11.1
+   PC1>show ip
+   PC1>save
+   
+   VLAN 200
+   PC-5
+   PC1>ip 172.31.21.4/24 172.31.21.1
+   PC1>show ip
+   PC1>save
+        
+   VLAN 300
+   PC-6
+   PC1>ip 172.31.31.4/24 172.31.31.1
+   PC1>show ip
+   PC1>save
+
+   
