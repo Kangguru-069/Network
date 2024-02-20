@@ -1,0 +1,143 @@
+Membuat Jaringan Topologi Ring
+
+Topologi Ring adalah jenis struktur jaringan komputer di mana setiap perangkat terhubung satu sama lain dalam bentuk lingkaran atau cincin tertutup. Dalam topologi ini, setiap perangkat terhubung langsung ke dua perangkat lainnya, menciptakan lingkaran yang tertutup.
+
+Data dalam topologi ini dikirimkan dari satu perangkat ke perangkat lainnya searah sepanjang jalur cincin. Setiap perangkat memiliki waktu khusus untuk mengirim dan menerima data. Sebuah sinyal atau paket data bergerak sepanjang jalur lingkaran hingga sampai ke tujuan yang dituju.
+
+A. Kelebihan Topologi Ring
+   1. Kinerja yang tinggi
+      Topologi Ring memungkinkan kinerja yang tinggi dalam pengiriman data. 
+      Dalam topologi ini, data dikirimkan dalam satu arah sepanjang lingkaran, 
+      mengurangi kemungkinan tabrakan data yang sering terjadi pada topologi lain seperti topologi bus.
+      
+      Memberikan efisiensi dalam proses transmisi data, dengan sedikit perangkat yang terhubung.
+   
+   2. Memiliki Keunggulan dalam Transmisi Data
+      Memiliki keunggulan dalam transmisi data. Setiap perangkat di jaringan memiliki kesempatan yang sama untuk berpartisipasi dalam pengiriman data.
+      Sinyal atau paket data bergerak sepanjang jalur lingkaran dan dijamin mencapai tujuannya tanpa tabrakan dengan paket lain, mengurangi kemungkinan kegagalan transmisi.
+      
+   3. Mudah dalam Menemukan Kesalahan (Troubleshouting)
+      Ketika terjadi gangguan atau kegagalan dalam jaringan Topologi Ring, sistem memiliki kemampuan bawaan untuk menentukan titik kegagalan secara langsung.
+      Dalam lingkungan seperti ini, deteksi dan isolasi gangguan menjadi lebih mudah karena struktur sirkular yang jelas. Ini memudahkan proses troubleshooting dan perbaikan yang cepat.
+   
+   4. Skalabilitas
+      Topologi Ring adalah jaringan yang memungkinkan penambahan perangkat atau node tambahan dengan relatif mudah. 
+      Penambahan perangkat dalam cincin hanya melibatkan koneksi baru antara perangkat yang baru ditambahkan dengan perangkat yang sudah ada dalam cincin.
+
+   5. Penggunaan Ressources yang Efisien
+      Dalam Topologi Ring, setiap perangkat memiliki kesempatan yang sama untuk mengakses jaringan. 
+      Ini menghindari situasi di mana satu perangkat atau node menguasai seluruh bandwidth atau sumber daya jaringan.
+      
+      Dengan distribusi yang merata, sumber daya jaringan digunakan secara efisien oleh setiap perangkat.
+   
+   6. Tidak Terpengaruh oleh jumlah perangkat yang banyak
+      Topologi Ring cenderung tidak terpengaruh oleh jumlah perangkat yang terhubung. Walaupun jumlah perangkat bertambah, 
+      pengaruh terhadap kinerja jaringan tidak secara signifikan menurun.
+
+      Topologi ini cocok untuk lingkungan di mana pertumbuhan jumlah perangkat bisa terjadi secara dinamis.
+
+   7. Keamanan data yang Lebih Baik
+      Dalam topologi ini, setiap paket data melewati setiap node dengan informasi tertentu, 
+      dan hanya perangkat tujuan yang akan menerima dan memproses paket data tersebut.
+      Hal ini dapat meningkatkan keamanan data karena hanya perangkat yang dituju 
+      yang memiliki hak akses untuk menerima dan membaca data tersebut.
+   
+   8. Pengelolaan yang Mudah
+      Manajemen dalam Topologi Ring dapat lebih mudah dilakukan karena strukturnya yang jelas dan terorganisir.
+      Identifikasi, pengawasan, dan pemeliharaan perangkat dapat dilakukan dengan lebih efisien 
+      karena setiap perangkat memiliki hubungan yang langsung dengan perangkat lainnya dalam lingkaran.
+   
+   9. Toleransi Terhadap kegagalan (Fault Tolerance)
+      Topologi Ring memiliki toleransi terhadap kegagalan yang terbatas. 
+      Walaupun kegagalan pada satu perangkat dapat mempengaruhi seluruh jaringan, 
+      namun dengan pengelolaan yang baik dan deteksi yang cepat, kegagalan dapat diisolasi dengan relatif mudah.
+
+   10. Efisiensi dalam pengiriman pesan multicast
+       Pengiriman pesan multicast (ke sejumlah penerima) dalam topologi ini dapat dilakukan dengan efisiensi tinggi. 
+       Setiap pesan yang dikirimkan akan bergerak melalui jalur cincin yang sama dan sampai ke setiap perangkat 
+       dengan pengulangan pesan yang minimal.
+   
+
+B. Kekurangan Topologi Ring
+   1. Terganggu oleh Kegagalan pada sebuah Node
+      Kegagalan pada satu perangkat atau node dalam Topologi Ring dapat menyebabkan terganggunya keseluruhan jaringan. 
+      Jika salah satu perangkat mati atau mengalami masalah, sinyal atau data tidak dapat melanjutkan perjalanan di lingkaran, 
+      dapat menyebabkan seluruh jaringan terputus.
+   
+   2. Tidak Cocok untuk jaringan Skala Besar
+      Dalam jaringan yang sangat besar, penambahan perangkat atau node tambahan dapat mengakibatkan kompleksitas kabel yang tinggi. 
+      Dengan semakin banyaknya perangkat yang terhubung, manajemen fisik kabel menjadi lebih rumit dan sulit diatur.
+   
+   3. Kinerja Menurun dengan Pertambahan Node
+      Meskipun topologi ini memiliki toleransi yang relatif baik terhadap penambahan perangkat, kinerja jaringan dapat menurun secara signifikan 
+      saat jumlah perangkat dalam cincin semakin bertambah. Hal ini bisa mengakibatkan peningkatan latensi dan penurunan throughput.
+
+   4. Biaya Instalasi dan Perawatan yang tinggi
+      Topologi Ring adalah jaringan yang memerlukan instalasi kabel yang panjang dan lebih rumit karena setiap perangkat harus terhubung langsung ke perangkat lainnya. 
+      Hal ini dapat meningkatkan biaya instalasi, terutama pada jaringan yang luas atau kompleks.
+   
+   5. Kesulitan dalam Penambahan atau Penghapusan Node
+      Menambah atau menghapus perangkat dari topologi ini bisa menjadi proses yang sulit. 
+      Ketika perangkat tambahan ditambahkan, akan terjadi gangguan sementara pada jaringan dikarenakan sistem mengonfigurasi ulang hubungan fisik 
+      antara perangkat baru dengan perangkat yang sudah ada. Hal yang sama berlaku saat menghapus perangkat dari cincin. 
+      Proses ini bisa disebut juga proses "Maintenance Sistem".
+      
+   6. Performa Rentan terhadap lalu lintas jaringan yang tinggi
+      Dalam kondisi lalu lintas jaringan yang sangat tinggi, topologi ini bisa mengalami performa yang menurun. 
+      Pengiriman pesan secara berurutan dalam satu arah cincin dapat membebani sumber daya dan mengurangi efisiensi secara keseluruhan.
+   
+   7. Batasan pada jarak fisik
+      Kabel yang digunakan dalam Topologi Ring memiliki batasan pada jarak fisik maksimum yang dapat ditempuh. 
+      Ketika jarak antar perangkat terlalu jauh, perlu dilakukan penguatan sinyal yang dapat menambah biaya dan kompleksitas jaringan.
+   
+   8. Keamanan yang terbatas
+      Meskipun topologi ini adalah jaringan yang memiliki keamanan internal yang baik karena setiap perangkat hanya menerima data yang ditujukan untuknya, 
+      namun jika salah satu node dikompromikan atau diretas, hal tersebut dapat memberikan akses ke seluruh lingkaran dan mempengaruhi keseluruhan jaringan.
+      
+      
+Router yang digunakan : Router Cisco 1700      
+C. Setting Router (Router 1)   
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal 
+   R1(config-if)#ip address 172.20.47.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+D. Setting PC
+   
+   PC1>ip 172.20.47.13/24 172.20.47.1
+   PC1>show ip
+   PC1>save
+   
+   PC2>ip 172.20.47.18/24 172.20.47.1
+   PC2>show ip
+   PC2>save
+   
+   PC3>ip 172.20.47.24/24 172.20.47.1
+   PC3>show ip
+   PC3>save
+   
+   PC4>ip 172.20.47.28/24 172.20.47.1
+   PC4>show ip
+   PC4>save
+   
+   PC5>ip 172.20.47.30/24 172.20.47.1
+   PC5>show ip
+   PC5>save
+      
+   PC6>ip 172.20.47.32/24 172.20.47.1
+   PC6>show ip
+   PC6>save
+   
+   PC7>ip 172.20.47.35/24 172.20.47.1
+   PC7>show ip
+   PC7>save
+   
+   
