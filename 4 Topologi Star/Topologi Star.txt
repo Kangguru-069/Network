@@ -1,0 +1,58 @@
+Mambuat Topologi Star
+
+Topologi Star merupakan salah satu bentuk dari topologi jaringan, Topologi Star ini didesain menyerupai bentuk bintang, 
+topologi ini memiliki node inti/tengah yang disambungkan ke node lainnya, dimana node tengah tersebut merupakan sebuah konsentrator 
+seperti switch dan hub yang berfungsi sebagai pengatur distribusi komunikasi data.
+
+A. Kelebihan Topologi Star
+   1. Mudah ketika mencoba mendeteksi masalah pada jaringan.
+   2. Bisa meminimalisir masalah jaringan ketika terjadi kerusakan pada salah satu kabel, 
+      karena masalah jaringan hanya akan mempengaruhi perangkat yang dilalui kabel rusak tersebut.
+   3. Sangat fleksibel.
+   4. Keamanan data termasuk tingkat tinggi.
+   5. Kecepatan transfer data pada jaringan akan sama besar antara komputer client dengan server pusat.
+
+B. Kekurangan Topologi Star
+   1. Jika perangkat switch atau hub yang menjadi node tengah mengalami kerusakan, maka seluruh rangkaian akan berhenti dan melumpuhkan jaringan.
+   2. Diperlukan biaya yang banyak karena pemakaian kabel yang boros.
+   3. Jumlah terminal bergantung dengan jumlah port switch atau hub.
+   4. Ketika semakin banyak perangkat yang ditambah maka akan mempengaruhi kecepatan jaringan.
+   5. Biaya jaringan yang diperlukan lebih mahal dari pada topologi ring atau bus.
+
+
+Router yang digunakan : Router Cisco 1700      
+C. Setting Router (Router 1)   
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal 
+   R1(config-if)#ip address 172.29.34.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+
+D. Setting PC
+   
+   PC-Server>ip 172.29.34.5/24 172.29.34.1
+   PC-Server>show ip
+   PC-Server>save
+   
+   PC-Client1>ip 172.29.34.7/24 172.29.34.1
+   PC-Client1>show ip
+   PC-Client1>save
+   
+   PC-Client2>ip 172.29.34.9/24 172.29.34.1
+   PC-Client2>show ip   
+   PC-Client2>save
+   
+   PC-Client3>ip 172.29.34.8/24 172.29.34.1
+   PC-Client3>show ip
+   PC-Client3>save
+   
+   PC-Client4>ip 172.29.34.6/24 172.29.34.1
+   PC-Client4>show ip
+   PC-Client4>save
