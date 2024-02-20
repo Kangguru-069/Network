@@ -1,0 +1,55 @@
+A. Prinsip Kerja MPLS
+
+   - Menggabungkan kecepatan switching pada layer 2 dengan kemampuan routing dan skalabilitas pada layer 3.
+   - Menyelipkan Label diantara header layer 2 dan layer 3 pada paket yang diteruskan .
+   - Label dihasilkan oleh Label-Switching Router (LSR).
+   - Label berisi informasi tujuan node selanjutnya kemana paket harus dikirim.
+   - LSP dibentuk oleh Protokol pensinyalan yang menentukan fowarding berdasarkan label pada paket.
+   - Router dalam mengambil keputusan ditentukan oleh sumber informasi yang ada pada label switching dengan panjang
+     tertentu yang disebut : Label Fowarding Information Base (LFIB)
+   - MPLS memeperlakukan Switch-switch sebagai peer-peer dan pada jaringan MPLS sekali paket dibubuhi "label" maka semua
+     pengiriman paket dikendalikan oleh label.
+
+B. Enkapsulasi Paket
+   - Memasang Headr MPLS pada Paket
+   - Header terdiri atas 32 bit data, termasuk 20 bit label, 3 bit eksperimen, 1 bit identifikasi stack serta 8 bit TTL.
+   - Label adalah bagian dari hedaer serta tanda identifikasi paket, digunakan untuk proses fowarding dan traffik engineering
+   - Setiap LSR memiliki tabel yang disebut label switching tabel
+   - Tabel itu berisi pemetaan label masuk, label keluar dan link ke LSR berikutnya.
+   - Saat LSR menerima paket, label paket akan dibaca, kemudian diganti dengan label keluar, lalu paket dikirimkan ke LSR berikutnya.
+   
+C. Mekanisme MPLS
+   Ada 3 Mekanisme yang mempengaruhi Prinsip Kerja MPLS
+   1. Distribusi Label
+      - Distribusi Label yang jalurnya ditentukan dari Tujuan/ label yang ditentukan dari penerima disebut Label Downstream On Demnand
+   
+   2. MPLS Traffic Engineering (Rekayasa Traffik)
+      - Sebuah Rekayasa Traffik yang dimana Pemilihan Jalur dalam pengiriman data harus seimbang. Menyeimbangkan beban trafik pada
+        jalur dan titik dalam network.
+      Komponen MPLS-TE :
+      1. Majamen Path
+      2. Penempatan Trafik
+      3. Penyebaran Informasi
+      4. Manajemen Network
+      
+   3. Protokol Persinyalan
+      1. Secara Manual oleh administrator
+      2. Secara Otomatis oleh Protocol Persinyalan
+      
+D. VPN dengan MPLS
+   - Salah satu feature MPLS adalah kemampuan membentuk tunnel atau virtual Circuit yang melintasi networknya. 
+     Kemampuan ini membuat MPLS befungsi sebagai platform alami untuk membangun Virtual Private Network (VPN).
+   - VPN yang dibangun dengan MPLS sangat berbeda dengan VPN yang hanya dibangun berdasarkan teknologi IP.
+   
+E. Cara Menentukan Proses MPLS
+   - Pembuatan Label dan distribusi
+   - Pembuatan Label dalam tiap router
+   - Pembuatan Jalur label yang terhubung
+   - Pemasukan Label
+   - Fowarding Paket
+   
+      
+
+Catatan :
+- LSP adalah beberapa LSR yang terhubung menjadi satu.
+- Label Downstream on Demand adalah Distribusi label yang ditentukan dari tujuan/ label yang ditentukan dari penerima. 

@@ -1,0 +1,20 @@
+Komponen MPLS
+
+- Label Switched Path (LSP), Merupakan Jalur yang melalui satu atau serangkaian LSR 
+                             dimana paket diteruskan oleh label swapping dari satu MPLS node ke
+                             MPLS node yang lain. Fungsinya menghubungkan titik-titik LSR.
+
+- Label Switching Router (LSR), MPLS node yang mampu meneruskan paket-paket Layer-3. Douter yang berada
+                                pda jaringan MPLS.
+
+- MPLS Edge Node atau Label Edge Router (LER), MPLS node yang menghubungkan sebuah MPLS domain 
+                                               dengan node yanb berada diluar MPLS Domain.
+                                               Router yang derada di Tepi.
+
+- MPLS Ingress Node, MPLS node yang mengatur trafik saat akan memasuki MPLS Domain (Merupakan LSR pertama).
+
+- MPLS Egress Node, MPLS node yang mengatur trafik saat Meninggalkan MPLS Domain (Merupakan LSR terakhir).
+
+- MPLS Label, Merupakan Label yang ditempatkan sebagai MPLS header.
+
+- MPLS Node, Node yang menjalankan MPLS. MPLS Node ini sebagai control protokol yang akan meneruskan paket berdasarkan label.
