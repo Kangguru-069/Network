@@ -1,0 +1,67 @@
+Topologi Mesh
+
+Topologi mesh adalah salah satu dari sekian banyak jenis topologi jaringan komputer. 
+Jenis topologi ini memiliki bentuk seperti jala di mana setiap komputernya terhubung satu sama lain.
+
+Dalam sebuah jaringan, nantinya terdapat lebih dari satu komputer, komputer tersebut dapat saling terhubung 
+dan berkomunikasi secara langsung, hal ini biasa disebut dengan dedicated link. 
+
+Topologi ini seringkali digunakan untuk jaringan yang berskala tidak terlalu besar tetapi membutuhkan 
+komunikasi antar perangkat yang cepat, mengingat komputer pada topologi ini saling terhubung.
+
+Topologi ini hanya digunakan pada jaringan skala menengah atau bahkan kecil, yakni karena model topologi 
+yang cenderung rumit dan membutuhkan banyak kabel. 
+Maka dari itu, apabila diterapkan pada jaringan berskala besar justru dikhawatirkan kurang efektif.
+
+Kelebihan
+- Dapat mendeteksi kesalahan atau kerusakan secara cepat.
+- Keamanan terhadap data yang dibagikan dalam jaringan tersebut dapat diatur sesuai kebutuhan.
+- Apabila terjadi kerusakan pada salah satu komputer, maka komputer lain tidak akan berpengaruh.
+- Data yang dikirim dari perangkat satu ke perangkat lain bisa lebih cepat sampai karena terdapat hubungan dedicated link.
+
+Kekurangan
+- Instalasi topologi ini cukup rumit karena perlu mengkoneksikan ke berbagai perangkat dan membutuhkan banyak kabel. 
+- Karena membutuhkan banyak kabel, maka biaya yang dikeluarkan lebih besar.
+- Topologi ini kurang efektif jika digunakan untuk keperluan sehari-hari.
+- Proses konfigurasi pada masing-masing perangkat cukup rumit.
+- Biaya maintenance topologi cenderung besar karena koneksi yang banyak.
+
+
+Topologi Mesh
+
+Router yang digunakan : Router Cisco 1700      
+A. Setting Router (Router 1)   
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal 
+   R1(config-if)#ip address 172.17.46.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+
+B. Setting PC
+   
+   PC1>ip 172.17.46.10/24 172.17.46.1
+   PC1>show ip
+   PC1>save
+   
+   PC2>ip 172.17.46.7/24 172.17.46.1
+   PC2>show ip
+   PC2>save
+   
+   PC3>ip 172.17.46.9/24 172.17.46.1
+   PC3>show ip   
+   PC3>save
+   
+   PC4>ip 172.17.46.2/24 172.17.46.1
+   PC4>show ip
+   PC4>save
+   
+   PC5>ip 172.17.46.4/24 172.17.46.1
+   PC5>show ip
+   PC5>save
