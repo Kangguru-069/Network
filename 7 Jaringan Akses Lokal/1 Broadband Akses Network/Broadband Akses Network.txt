@@ -1,0 +1,36 @@
+Broadband Akses Network
+
+- Access jaringan yang menghubungkan user dan central terdekat (E-node B).
+- Jaringan Akses (Access Network) adalah Jaringan Transmisi antara sentra lokal dan terminal pelanggan.
+- Jaringan Lokal Akses adalah saluran yang menghubungkan antara sentral (Access Node) dengan pesawat terminal (End User)
+  pada wilayah tertentu.
+
+1. Access
+   4G 
+   User --> UE
+
+2. Core
+   4G
+   - Signal               --> MME (Mobile Management Entity)
+   - User                 --> SGW/PGW
+   - Penyimpanan          --> HSS
+   - Billing dan Charging --> PCRF 
+   
+- Telekomunikasi merupakan proses switching, transmisi dan jaringan (Trunk dan akses)
+- Jaringan Akses menghubungkan LE (Local Exchange) dengan pelanggan.
+- Fungsi mentransmisikan service ke pelanggan.
+
+Teknologi Akses Network
+1. Berbasis Copper (Jarlokat) --> Jaringan Lokal Akses Tembaga
+   - Jarlokat Murni
+   - Jarlokat + xDSL  ---> ADSL (Asimetric Digital Subscriber Line) ==> (Speedy)
+   
+2. Berbasis Fiber Optik (Jarlokaf) --> Jaringa Lokal Akses Fiber
+   - MSOAN/OAN (Multi Service Optical Access Network/Optical Access Network)
+   - Metro Access Network (Ethernet)
+   
+3. Berbasis HFC (Hybrid Fiber Coaxial)
+4. Berbasis Radio/Wireless (Jarlokar) --> Jaringa Lokal Akses Radio
+   - WLL
+   - Fixed Wireless
+5. Hybrid Access
