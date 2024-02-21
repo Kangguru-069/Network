@@ -1,0 +1,45 @@
+Jaringan Lokal Akses Radio
+
+Jarlokar adalah jaringan lokal akses yang memanfaatkan media udara sebagai media transmisinya, 
+dimana antena dijadikan sebagai pemancar dan penerima sinyal informasi.
+
+Beberapa Teknologi yang menggunakan Radio diantaranya adalah 
+- WLL (WIreless Local Loop)
+- Seluler
+- Wifi
+- Wmax
+- Bluetooth
+
+- Jaringan Akses antara Terminal Pelanggan dan Sentral Lokal (PSTN atau ISDN) 
+  melalui gelombang radio yang dipancarkan ke udara.
+- Tidak menggunakan konduktor fisik dalam membawa sinyal (unguided). 
+  Menggunakan Radiasi gelombang radio.
+- Menggunakan energi elektromagnetik dalam bentuk cahaya atau radio.
+
+Keuntungan :
+- Fleksibilitas Pemasangan (Feasible)
+- Biaya Rendah (Low Cost)
+- Lebih cepat dalam implementasi (speed of deployment)
+
+Kekurangan :
+- Kompleksitas Regulasi (Licensed and Regulation)
+- Kurang aman (Inherently not secure)
+- Jarak terbatas (distance limited)
+
+Catatan :
+- PABX adalah (Private Automatic Branch Exchange)
+  PABX adalah sistem telepon di dalam suatu organisasi atau perusahaan. 
+  Sistem ini berfungsi untuk menghubungkan antara satu bagian dengan bagian lainnya 
+  di dalam suatu gedung atau kantor dengan menggunakan jaringan internal telepon.
+  
+- PBX (Private Branch Exchange)
+  PBX sistem komunikasi yang memungkinkan pengguna untuk melakukan panggilan telepon 
+  menggunakan teknologi Voice Over Internet Protocol (VoIP) melalui jaringan internet.
+  
+  IP-PBX berfungsi sebagai pusat kontrol yang mengelola dan mengarahkan 
+  panggilan telepon masuk dan keluar di dalam suatu organisasi atau perusahaan.
+
+  Dengan IP-PBX, pengguna dapat melakukan panggilan telepon melalui perangkat telepon IP, 
+  komputer, atau perangkat lain yang terhubung ke jaringan internet. IP-PBX juga menyediakan 
+  fitur komunikasi tambahan seperti voicemail, panggilan konferensi, dan integrasi dengan 
+  sistem CRM untuk meningkatkan efisiensi dan produktivitas dalam berkomunikasi.
