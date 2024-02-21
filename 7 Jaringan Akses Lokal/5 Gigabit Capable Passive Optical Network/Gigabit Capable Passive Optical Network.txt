@@ -1,0 +1,18 @@
+Gigabit Capable Passive Optical Network
+
+1. ONU (Optical Network Unit)
+   - Akses Jaringan yang langsung menuju user
+2. ONT (Optical Network Terminal)
+   - Akses Jaringan yang tidak langsung menuju user
+     Data --> Splitter --> Terminal/Switch/Hub --> user
+
+GPON merupakan teknologi FTTx yang dapat mendeliver services sampai ke premise
+pelanggan menggunakan fiber optic cable.
+
+Keunggulannya :
+- Bandwith yang ditawarkan bisa mencapai 2.488 Gbps (downstream).
+- Fleksibel
+- Dapat mentransmisikan data dengan jarak puluhan Kilometer.
+- Akses Triple Play : Data/internet, Voice/Telephone, TV kabel
+
+
