@@ -1,0 +1,57 @@
+Topologi Hybrid
+
+Topologi Hybrid adalah gabungan dari beberapa topologi yang berbeda dan membentuk jaringan baru. Dengan kata lain, jika ada dua atau lebih topologi yang berbeda terhubung dalam satu jaringan maka topologi jaringan tersebut akan membentuk topologi hybrid. 
+
+1. Kelebihan Topologi Hybrid, diantaranya yaitu:
+   - Bersifat fleksibel.
+   - Penambahan koneksi lain pada topologi ini menjadi sangat mudah.
+2. Kekurangan Topologi Hybrid, diantaranya yaitu:
+   - Proses installasi dan pengaturannya cukup rumit.
+   - Manajemen topologi hybrid sangat sulit dilakukan.
+   - Biaya untuk membuat topologi ini cukup mahal.
+
+
+Router yang digunakan : Router Cisco 3600      
+A. Setting Router (Router 1)   
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal 
+   R1(config-if)#ip address 172.24.37.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+
+B. Setting PC
+   
+   PC1>ip 172.24.37.6/24 172.24.37.1
+   PC1>show ip
+   PC1>save
+   
+   PC2>ip 172.24.37.7/24 172.24.37.1
+   PC2>show ip
+   PC2>save
+   
+   PC3>ip 172.24.37.13/24 172.24.37.1
+   PC3>show ip   
+   PC3>save
+   
+   PC4>ip 172.24.37.8/24 172.24.37.1
+   PC4>show ip
+   PC4>save
+   
+   PC5>ip 172.24.37.5/24 172.24.37.1
+   PC5>show ip
+   PC5>save
+   
+   PC6>ip 172.24.37.10/24 172.24.37.1
+   PC6>show ip
+   PC6>save
+   
+   PC7>ip 172.24.37.9/24 172.24.37.1
+   PC7>show ip
+   PC7>save
