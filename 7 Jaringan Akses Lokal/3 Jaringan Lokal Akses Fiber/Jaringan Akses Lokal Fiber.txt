@@ -1,0 +1,48 @@
+Jaringan Akses Lokal Fiber
+
+Jarlokaf adalah jaringan lokal akses yang memanfaaftkan media fiber optic sebagai media transimisinya, 
+sehingga proses pengiriman sinya informasi dapat dilaksanakan lebih cepat.
+
+1. Fiber To The Zone
+   - TKO (Titik Konversi Optik) terletak di suatu tempat di luar bangunan, baik dalam kabinet dengan kapasitas besar
+   - Terminal pelanggan dihubungkan dengan TKO (Titik Konversi Optik) melalui kabel tembaga hingga beberapa kilometer
+   - FTTZ dapat dianalogikan sebagai pengganti RK (Rumah Kabel).
+   - DIterapkan pada daerah yang letaknya jauh dari sentral atau bila infrastruktur duct pada arah yang
+     bersangkutan, sudah tidak memenuhi lagi untuk ditambah dengan kabel tembaga.
+
+2. Fiber To The Curb
+   - TKO (Titik Konversi Optik) terletak disuatu tempat di luar bangunan, 
+     didalam kabinet dan diatas tiang dengan kapasitas lebih kecil (< 120 sst)
+   - Terminal pelanggan dihubungkan dengan TKO (Titik Konversi Optik) melalui kabel tembaga hingga beberapa ratus meter.
+   - FTTC dapat dianalogikan sebagai pengganti Kabel Primer
+   - FTTC dapat diterapkan bagi pelanggan bisnis yang letaknya terkumpul di suatu area terbatas 
+     namun tidak berbentuk gedung bertingkat atau bagi pelanggan perumahan yang pada waktu dekat 
+     akan menjadi pelanggan jasa hiburan.
+     
+3. Fiber To The Home 
+   - TKO (Titik Konversi Optik) terletak didalam rumah pelanggan
+   - Terminal pelanggan dihubungkan dengan TKO (Titik Konversi Optik) 
+     melalui kabel tembaga indoor atau IKR hingga beberapa puluh meter
+   - FTTH dianalogikan sebagai pengganti Terminal Batas.
+   - Menyediaan Layanan Triple Play : Data/Internet, Voice/Telephone, TV Kabel
+ 
+Jaringan Jarlokaf :
+- Berkecepatan tinggi dan memungkinkan transmisi layanan-layanan broadband
+- Mengatasi Batasan yang ada pada jarlokat.
+- SDH (Synchronous Digital Hierarchy), cocok mendistribusikan bandwith transmisi 
+  dan kapasitas sesuai kebutuhan 
+- PON (Passive Optical Network)
+  - Topologi Jaringan Mengadopsi Jarlokat
+  - TDM, Passive Splitting, Ranging Technology, Fast Synchronization
+  - Akses layanan Narrowband
+- AON (Active Optical Network)
+  - Secara topologi dan fungsi sama dengan PON.
+  - Perbedaan pada splitter yang menggunakan tipe aktif.
+- Teknologi Hybrid
+  - Jaringan utama -> Optik -> Kapasitas Besar dan Kualitas transmisi
+  - Ke subscriber -> Kabel tembaga atau radio
+
+
+Catatan : 
+FTTx (Fiber to The x)
+ 
