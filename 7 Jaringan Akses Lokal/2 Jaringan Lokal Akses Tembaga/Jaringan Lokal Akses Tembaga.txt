@@ -1,3 +1,86 @@
 Jaringan Lokal Akses Tembaga
 
+1. Jarlokat Murni
+2. Jarlokat + xDSL  --> ADSL (Asymmetric digital subscriber line) --> Speedy
+
+Jarlokat terdiri dari Data/Internet dan Voice/Telepon 
+
+A. Pemakaian Jaringan Catu Langsung
+   - Biasanya di kota-kota besar
+   - Kota kota kecil yang pelanggannya masih sedikit
+   - Daerah dengan demand/pelanggan terpusat
+   - Daerah dengan pelanggan VIP
+
+   Keuntungan Pemakaian Jaringan Catu Langsung :
+   - Dari Segi Ekonomi Menguntungkan (Biaya Rendah) 
+     Karena pada jaringan ini tidak menggunakan Rumah Kabel.
+   - Administrasi Kabel menjadi Lebih Sederhana
+   - Titik rawan gangguan yang akan muncul lebih kecil.
+
+   Kerugian Pemakaian Jaringan Catu Langsung :
+   - Tidak Fleksibel
+   - Sulit Melokalisir gangguan karena kabel primer yang digunakan terlalu panjang, 
+     sehingga sulit unuk menentukan letak kerusakan dengan tepat. 
+
+B. Pemakaian Jaringan Catu Tidak Langsung
+   - Penggunaan jaringan di kota-kota yang memiliki banyak pelanggan atau pengguna.
+   - Daerah yang jauh lokasinya.
+   - Daerah yang pelangannya menyebar.
+   
+   Keuntungan Pemakaian Jaringan Catu Tidak Langsung :
+   - Lebih Fleksibel
+   - Mudah melokalisir gangguan
+
+   Kerugian Pemakaian Jaringan Catu Tidak Langsung :
+   - Biaya pembangunan jaringan lebih besar karena menggunakan RK (Rumah Kabel)
+   - Sumber gangguan lebih banyak
+   - Kadang-kadang sulit untuk menentukan lokasi RK (Rumah Kabel) yang aman.
+   
+C. ADSL (Asymetric Digital Subscriber Line)
+   - Teknologi akses yang memungkinkan terjadinya komunikasi 
+     data voice dan video secara bersamaan menggunakan media jaringan akses
+     kabel tembaga 1 pair.
+   - Disebut Asimetrik karena kecepatan transmisi dari sentral ke pelanggan (downstream) 
+     tidak sama dengan rate transmisi dari aah pelangan ke sentral (upstream).
+   - Bit rate downstream 8 Mb/s, upstream 640 Kb/s
+   - Aplikasi ini digunakan untuk menyalurkan layanan broadband
+   
+D. Komponen Pembangun ADSL 
+   - Modem ADSL
+   - Splitter
+     Splitter berfungsi sebagai pemisah/pengenal antara sinyal analog(voice) atau data. 
+     Jika Informasi yang dikirimkan adalah Voice, maka informasi tersebut akan diteruskan ke telepon. 
+     Jika Informasi yang diterima dalah Data, maka informasi akan diteruskan ke perangkat (Modem) yang selanjutnya diteruskan ke computer.
+     Prinsip kerja splitter adalah menggunakan filter, lowpass filter, highpass filter.
+   - DSLAM
+     Konfigurasi perangkat xDSL yang secara fisik modem sentralnya berupa card module yang berisi banyak modem sentral.
+     Fungsi DSLAM :
+     - Sebagai Filter Voice dan Data
+     - Sebagai Modulator/Demodulator
+     - Sebagai Multiplexer     
+   - Remote DSLAM (Digital Subscriber Line Access Multiplexer)
+     Merupakan DSLAM yang dipasang di area-area tertentu yang bertujuan agar pelanggan sekitar bisa terkoneksi ke jaringan.
+   - ATM (Asynchronous Transfer Mode) Switch
+     Fungsinya : 
+     - Titik penyambungan/Switching (Cross Connect) antara DSLAM dan RAS (Remote Access Service)
+     - Sebagai Gateway jaringan ATM (Asynchronous Transfer Mode)
+     - Multiplecer paket ATM dari DSLAM
+     - Titik interkoneksi antara ATM dan IP
+   - BRAS (Broadband Remote Access Server)
+     Fungsinya :
+     - Melakukan routing dari user ke ISP tujuan
+     - IP Management
+     - Konfigurasi Interface User
+     - Sebagai ISP Gateway
+     - Sebagai Internet Gateway
+   - RADIUS (Remote Authentication Dial-In User Service)
+     Fungsinya :
+     - Authentication, mengidentifikasi user
+     - Authorization, melayani akses user sesuai dengan service levelnya (LDAP)
+     - Accounting, Melakukan proses billing dan informasi penggunaan seorang user 
+   - NMS (Network Management System)
+   
+   
+Catatan :
+- Saat menggunakan Voice/Telepon maka Data/Internet tidak bisa dijalankan.
 
