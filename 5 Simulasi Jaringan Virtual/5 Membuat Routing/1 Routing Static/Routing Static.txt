@@ -1,0 +1,175 @@
+Routing Static
+
+A 10.101.90.0/30       --> 4 HOST
+B 20.101.92.0/30
+C 30.101.94.0/30
+D 40.101.96.0/30
+
+
+VLAN 100
+IP 172.18.33.0/29      --> 8 HOST
+
+VLAN 200
+IP 172.18.35.0/29
+
+VLAN 300
+IP 172.18.37.0/29
+
+VLAN 400
+IP 172.18.39.0/29
+
+
+Router yang digunakan : Router Cisco 3600     
+A. Setting Router (Router 1)   
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   VLAN 100
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0.100
+   R1(config-subif)#encapsulation dot1q 100
+   R1(config-subif)#ip address 172.18.33.1 255.255.255.248
+   
+   R1(config-subif)#interface ethernet 0/3
+   R1(config-if)#ip address 10.101.90.1 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-subif)#interface ethernet 0/2
+   R1(config-if)#ip address 20.101.92.1 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   ROUTING STATIS
+   R1#config terminal 
+   R1(config)#ip route 172.18.35.0 255.255.255.248 ethernet 0/3
+   R1(config)#ip route 172.18.39.0 255.255.255.248 ethernet 0/2
+   R1(config)#ip route 172.18.37.0 255.255.255.248 ethernet 0/2    
+   R1(config)#exit
+   R1#show ip route
+   
+B. Setting Router (Router 2)      
+   VLAN 200
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0.200
+   R1(config-subif)#encapsulation dot1q 200
+   R1(config-subif)#ip address 172.18.35.1 255.255.255.248
+   
+   R1(config-subif)#interface ethernet 0/3
+   R1(config-if)#ip address 10.101.90.2 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-subif)#interface ethernet 0/2
+   R1(config-if)#ip address 30.101.94.1 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   ROUTING STATIS
+   R1#config terminal 
+   R1(config)#ip route 172.18.33.0 255.255.255.248 ethernet 0/3
+   R1(config)#ip route 172.18.39.0 255.255.255.248 ethernet 0/2
+   R1(config)#ip route 172.18.37.0 255.255.255.248 ethernet 0/2    
+   R1(config)#exit
+   R1#show ip route
+   
+C. Setting Router (Router 3)     
+   VLAN 300
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0.300
+   R1(config-subif)#encapsulation dot1q 300
+   R1(config-subif)#ip address 172.18.37.1 255.255.255.248
+   
+   R1(config-subif)#interface ethernet 0/2
+   R1(config-if)#ip address 20.101.92.2 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-subif)#interface ethernet 0/3
+   R1(config-if)#ip address 40.101.96.1 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   ROUTING STATIS
+   R1#config terminal 
+   R1(config)#ip route 172.18.33.0 255.255.255.248 ethernet 0/2
+   R1(config)#ip route 172.18.35.0 255.255.255.248 ethernet 0/3
+   R1(config)#ip route 172.18.39.0 255.255.255.248 ethernet 0/3    
+   R1(config)#exit
+   R1#show ip route
+   
+D. Setting Router (Router 4)     
+   VLAN 400
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0.400
+   R1(config-subif)#encapsulation dot1q 400
+   R1(config-subif)#ip address 172.18.39.1 255.255.255.248
+   
+   R1(config-subif)#interface ethernet 0/2
+   R1(config-if)#ip address 30.101.94.2 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-subif)#interface ethernet 0/3
+   R1(config-if)#ip address 40.101.96.2 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   ROUTING STATIS
+   R1#config terminal 
+   R1(config)#ip route 172.18.33.0 255.255.255.248 ethernet 0/2
+   R1(config)#ip route 172.18.35.0 255.255.255.248 ethernet 0/2
+   R1(config)#ip route 172.18.37.0 255.255.255.248 ethernet 0/3    
+   R1(config)#exit
+   R1#show ip route   
+
+E. Setting PC
+   VLAN 100
+   PC5>ip 172.18.33.2/29 172.18.33.1
+   PC5>show ip
+   PC5>save
+   
+   PC1>ip 172.18.33.3/29 172.18.33.1
+   PC1>show ip
+   PC1>save
+   
+   VLAN 200
+   PC7>ip 172.18.35.4/29 172.18.35.1
+   PC7>show ip   
+   PC7>save
+   
+   PC2>ip 172.18.35.6/29 172.18.35.1
+   PC2>show ip
+   PC2>save
+   
+   VLAN 300
+   PC4>ip 172.18.37.5/29 172.18.37.1
+   PC4>show ip
+   PC4>save
+   
+   PC6>ip 172.18.37.3/29 172.18.37.1
+   PC6>show ip
+   PC6>save
+   
+   VLAN 400
+   PC7>ip 172.18.39.6/24 172.18.39.1
+   PC7>show ip
+   PC7>save
+   
+   PC6>ip 172.18.39.5/24 172.18.39.1
+   PC6>show ip
+   PC6>save
+   
+
