@@ -1,0 +1,97 @@
+A. Metode Enkripsi
+
+   1. Enkripsi Simetris
+      Enkripsi Simetris merupakan enkripsi dengan penggunaan kunci yang sama 
+      untuk enkripsi dan deskripsi data. 
+      Metode ini dikenal karena kecepatan prosesnya, namun, tantangan utamanya 
+      adalah bagaimana menyampaikan kunci menuju tujuan tanpa risiko kebocoran. 
+      Algoritma populer seperti Advanced Encryption Standard (AES) sering digunakan 
+      dalam enkripsi simetris untuk melindungi data sensitif.
+   
+   2. Enkripsi Asimetris
+      Enkripsi asimetris menggunakan sepasang kunci, yaitu kunci publik dan kunci
+      pribadi. Kunci publik digunakan untuk enkripsi data, sementara kunci pribadi
+      digunakan untuk dekripsi. Kelebihan utama enkripsi asimetris adalah keamanan
+      dalam pertukaran kunci, karena kunci publik dapat disebarkan secara bebas
+      tanpa mengorbankan keamanan data. 
+      Pesan terenkripsi dikirimkan menggunakan kunci public dan setelah sampai
+      tujuan pesan akan di dekripsi menggunakan kunci pribadi.
+   
+   3. Enkripsi Hash
+      Enkripsi hash melibatkan transformasi data menjadi nilai hash yang unik.
+      Proses ini bersifat satu arah, yang berarti sulit untuk mengembalikan data
+      awal dari nilai hash. 
+      Meskipun tidak digunakan untuk enkripsi data secara langsung, enkripsi hash 
+      sering digunakan dalam verifikasi integritas data dan penyimpanan password.
+   
+   4. Enkripsi Full Disk
+      Enkripsi full disk mencakup enkripsi seluruh penyimpanan data pada perangkat. 
+      Dengan menggunakan kunci enkripsi, seluruh isi disk diacak sehingga tidak dapat 
+      diakses tanpa kunci yang sesuai. Ini memberikan lapisan keamanan tambahan 
+      terutama pada perangkat seluler dan laptop yang dapat hilang atau dicuri.
+
+   5. Enkripsi SSL/TLS
+      Enkripsi SSL/TLS (Secure Sockets Layer/Transport Layer Security) diterapkan 
+      pada lalu lintas data yang melintasi jaringan, khususnya di internet. 
+      Protokol ini mengamankan komunikasi antara pengguna dan server dengan menggunakan 
+      kunci enkripsi. Ini umumnya digunakan dalam transaksi online, login ke situs web, 
+      dan pertukaran data sensitif.
+
+B. Jenis-Jenis Enkripsi
+   1. DES(Data Encryption Standar)
+      DES adalah algoritme kunci simetris untuk enkripsi data elektronik. 
+      Meski ukuran kuncinya pendek, algoritme ini sangat berpengaruh dalam kemajuan kriptografi modern.
+      Algoritme ini memiliki panjang kunci sebanyak 56 bit sehingga kurang aman untuk sebagian besars aplikasi saat ini.
+      
+   2. AES(Advanced Encryption Standard)
+      AES adalah pengembangan dari tipe kunci DES yang merupakan standar enkripsi dengan kunci simetris yang diadopsi 
+      oleh Pemerintah Amerika Serikat. 
+      Standar ini terdiri dari tiga penyandian blok, yaitu AES-128, AES-192, dan AES-256.
+      Tiap-tiap penyandian memiliki ukuran blok 128 bit dengan ukuran kunci masing-masing 128, 192, dan 256 bit. 
+      
+   3. Triple DES (3DES) 
+      Triple DES adalah salah satu sistem enkripsi berlapis tiga dari sistem yang sebelumnya sudah ada, 
+      yaitu DES (Data Encryption Standard). Triple DES lebih aman dari DES, karena menggunakan enkripsi tiga langkah.
+      
+   4. Enkripsi MD2
+      Message-Digest Algorithm 2 atau yang dikenal dengan MD2, merupakan jenis
+      enkripsi yang banyak digunakan pada komputer 8-bit, sesuai dengan standar
+      internet yang ditetapkan oleh RFC 1319. Enkripsi MD2 biasa digunakan pada
+      infrastruktur kunci publik dan masih digunakan hingga tahun 2004. 
+   
+   5. Enkripsi MD4
+      MD4 merupakan pengembangan dari MD2 dengan jumlah panjang bit sebanyak 
+      128-bit. MD4 umum digunakan untuk menghitung NT-hash (hasil enkripsi)
+      ringkasan password pada Microsoft Windows NT, XP, dan Vista. 
+
+      Hash sendiri merupakan algoritma yang mengubah data informasi berupa huruf,
+      angka menjadi karakter terenkripsi dengan ukuran yang sama. Hash biasa
+      digunakan untuk password hashing (menyembunyikan password). Algoritma hash
+      yang umum digunakan yaitu pada metode MD5 dan SHA1.
+      
+   6. Enkripsi MD5
+      MD5 dilahirkan sebagai bentuk pembaruan dari MD4 yang dirasa kurang aman.
+      MD5 umum digunakan dengan hash value sebesar 128-bit. Selain itu, MD5
+      banyak digunakan untuk aplikasi keamanan dan pengujian integritas sebuah
+      berkas file.  
+
+   7. Enkirpsi SHA
+      SHA (Secure Hashing Algorithm) juga merupakan serangkaian metode
+      kriptografi yang dirancang langsung oleh National Security Agency (NSA)
+      yang diterbitkan oleh NIST untuk menjaga keamanan data. Jika terjadi
+      peretasan data, maka SHA dapat melindungi dengan cara memberikan hash yang
+      tidak dapat dibaca tanpa adanya deskripsi atau kunci.
+   
+   8. Enkripsi RC4
+      RC4 adalah penyandian stream cipher di mana proses enkripsi dan dekripsi
+      dilakukan dengan cara bit per bit. RC4 dibuat untuk mengamankan RSA dan
+      dibuat oleh Ron Rivest pada tahun 1987.
+      
+   9. Enkripsi Base64
+      Base64 merupakan metode enkripsi yang menerjemahkan data biner yang
+      berbentuk ASCII (American Standard Code for Information). Base64 merupakan
+      format yang dicetak menggunakan karakter atau binary data yang akan dikirim
+      dalam bentuk email, dan akan disimpan di database atau file. Base64
+      digunakan untuk menyembunyikan data penting, password, dan lainnya agar
+      bisa disamarkan keasliannya. 
+
