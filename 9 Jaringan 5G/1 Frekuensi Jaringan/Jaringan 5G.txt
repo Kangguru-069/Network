@@ -1,0 +1,20 @@
+Frekuensi yang digunakan untuk mengimplementasi jaringan 5G 
+- Lower  : dibawah 1 GHz      --> 700 MHz --> digunakan untuk TV
+- Middle : diantara 1 - 6GHz  --> (kurang lebih 3,5GHz tetapi di indonesia tidak bisa, 
+                                   karena di indonesia menggunakan C-Band (Satelit))
+- High   : diatas 6GHz        --> 24GHz/26GHZ  
+                                  (Semakin Tinggi Frekuensi, 
+                                   Coverage semakin kecil cakupan yang di dapatkan akan
+                                   semakin sempit)
+                                   
+Frekuensi Jaringan Seluler yang sudah digunakan di Indonesia
+- 900 Mhz  -> 2G (bandwith yang dibutuhkan 7,5 - 10 MHz)
+- 1800 MHz -> 4G (bandwith yang dibutuhkan 20 MHz)
+- 2100 MHz -> 3G (bandwith yang dibutuhkan 15 - 17,5 MHz)
+- 2300 MHz -> 4G (bandwith yang dibutuhkan 30MHz(Available)+ 20MHz(Unstable))
+
+Frekuensi Jaringan untuk mengimplementasikan 5G (Seluler)
+- Minimal bandwith yang dibutuhkan 60 MHz  --> NSA (Non-standalone)
+- Optimal bandwith 100 MHz (di luar Negeri, indonesia Belum) --> SA (Stand Alone)
+
+5G digunakan untuk menjalankan IoT (Internet Of Things)
