@@ -1,0 +1,17 @@
+New Radio dan Feature 5G
+
+Numerologi Scalable 0 - 5 :
+0 --> 15 kHz (bandwith 1, 5 dan 20 MHz)
+1 --> 30 kHz (bandwith 80 atau 100 MHz)
+2 --> 60 kHz (bandwith 160 MHZ)
+3 --> 120 kHz (bandwith 500 MHz)
+4 --> 240 kHz
+5 --> 60 kHz tapi menggunakan Extended CP
+
+- Semakin Banyak Slot maka kecepatan jaringan akan semakin baik.
+- Semakin Rendah atau semakin kecil Latency maka Kecepatan juga akan semakin baik. 
+
+Penggunaan NR Massive MIMO (Antena)
+- Antena 2 x 2 dan 4 x 4 --> Jaringan 4G
+- Antena 8 x 8 --> Jaringan 5G (NSA) --> di Indonesia
+- Antena Banyak --> Jaringan 5G (SA) --> di luar negeri 
