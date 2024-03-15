@@ -1,0 +1,46 @@
+Belajar Membuat IPv6
+
+Menghubungkan dua jaringan interface yang berbeda menggunakan IPv6 --> (ipv6 unicast-routing)  
+- Interface 0/0 1000::1/64
+- Interface 0/1 1000::2/64
+
+Router yang digunakan : Router Cisco 3640
+
+A. Setting Router-A  
+   - Interface 0/0
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 0/0
+     R1(config)#ipv6 address 2001:0001:0000:0000:0000:0000:0000:00001/64
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown   
+   
+   - Interface 0/1
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 0/1
+     R1(config)#ipv6 address 2001:0002:0000:0000:0000:0000:0000:00001/64
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown  
+   
+   R1(config-if)#exit
+   R1(config)#write
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting PC
+   PC-1
+   PC1>show ipv6
+   PC1>ping ipv6 address
+   
+   PC-2 
+   PC2>show ipv6
+   PC2>ping ipv6 address
+   
+   PC-3 
+   PC2>show ipv6
+   PC2>ping ipv6 address
+   
+   PC-4 
+   PC2>show ipv6
+   PC2>ping ipv6 address
