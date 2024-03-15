@@ -1,4 +1,4 @@
-Belajar Membuat IPv6
+Belajar Membuat IPv6 (DHCP IPv6)
 
 Menghubungkan dua jaringan interface yang berbeda menggunakan IPv6 --> (ipv6 unicast-routing)  
 - Interface 0/0 1000::1/64 (2001:0001:0000:0000:0000:0000:0000:00001/64)
