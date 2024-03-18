@@ -27,6 +27,7 @@ A. Setting Router-A
    R1(config)#write
    R1(config)#exit
    R1#show ip interface brief
+   R1#show ipv6 route
    
 B. Setting PC
    PC-1
