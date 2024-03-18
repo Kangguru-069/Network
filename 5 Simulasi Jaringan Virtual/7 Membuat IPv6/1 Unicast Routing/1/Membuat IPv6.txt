@@ -11,7 +11,7 @@ A. Setting Router-A
      R1#config terminal     
      R1(config)#ipv6 unicast-routing 
      R1(config)#interface ethernet 0/0
-     R1(config)#ipv6 address 2001:0001:0000:0000:0000:0000:0000:00001/64
+     R1(config)#ipv6 address 2001:0001:0000:0000:0000:0000:0000:00001/64 atau (2001::1/64)
      R1(config)#ipv6 enable
      R1(config)#no shutdown   
    
@@ -19,7 +19,7 @@ A. Setting Router-A
      R1#config terminal     
      R1(config)#ipv6 unicast-routing 
      R1(config)#interface ethernet 0/1
-     R1(config)#ipv6 address 2001:0002:0000:0000:0000:0000:0000:00001/64
+     R1(config)#ipv6 address 2001:0002:0000:0000:0000:0000:0000:00001/64 atau (2001::2/64)
      R1(config)#ipv6 enable
      R1(config)#no shutdown  
    
