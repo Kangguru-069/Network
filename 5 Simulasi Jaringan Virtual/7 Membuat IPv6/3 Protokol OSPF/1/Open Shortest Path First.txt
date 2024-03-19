@@ -1,0 +1,86 @@
+Protokol OSPF (Open Shortest Path First )
+
+Open Shortest Path First (OSPF) adalah sebuah protokol routing otomatis (Dynamic Routing) yang mampu menjaga, mengatur dan mendistribusikan informasi routing antar network atau jaringan secara dinamis. 
+
+Pada OSPF dikenal sebuah istilah Autonomus System (AS) yaitu sebuah gabungan dari beberapa jaringan yang sifatnya routing dan memiliki kesamaan metode serta policy pengaturan network, yang semuanya dapat dikendalikan oleh network administrator. Dan memang kebanyakan fitur ini digunakan untuk management dalam skala jaringan yang sangat besar. Oleh karena itu untuk mempermudah penambahan informasi routing dan meminimalisir kesalahan distribusi informasi routing, maka OSPF bisa menjadi sebuah solusi.
+
+Router yang digunakan : Router Cisco 3640
+
+A. Setting Router-1 
+   - Interface 0/0
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 0/0
+     R1(config)#ipv6 address 2001:0001:0000:0000:0000:0000:0000:00001/64 atau (2001::1/64)
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown   
+   
+   - Interface 0/2
+     R1(config)#interface ethernet 0/2
+     R1(config)#ipv6 address 2005:0001:0000:0000:0000:0000:0000:00001/64 atau (2005::1/64)
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown  
+     
+   - R1#config terminal
+     R1(config)#ipv6 router ospf 1
+     R1(config)#router-id 10.10.10.10
+     R1(config)#interface ethernet 0/0
+     R1(config)#ipv6 ospf 1 area 0
+     R1(config)#interface ethernet 0/2
+     R1(config)#ipv6 ospf 1 area 0
+     
+   R1(config-if)#exit
+   R1(config)#write
+   R1(config)#exit
+   R1#show ip interface brief
+   R1#show ipv6 route
+   
+B. Setting Router-2 
+   - Interface 0/0
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 0/0
+     R1(config)#ipv6 address 2001:0002:0000:0000:0000:0000:0000:00001/64 atau (2001::2/64)
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown   
+   
+   - Interface 0/2
+     R1(config)#interface ethernet 0/2
+     R1(config)#ipv6 address 2006:0001:0000:0000:0000:0000:0000:00001/64 atau (2006::1/64)
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown  
+     
+   - R1#config terminal
+     R1(config)#ipv6 router ospf 1
+     R1(config)#router-id 11.11.11.11
+     R1(config)#interface ethernet 0/0
+     R1(config)#ipv6 ospf 1 area 0
+     R1(config)#interface ethernet 0/2
+     R1(config)#ipv6 ospf 1 area 0
+     
+   R1(config-if)#exit
+   R1(config)#write
+   R1(config)#exit
+   R1#show ip interface brief
+   R1#show ipv6 route
+   
+B. Setting PC
+   PC-1
+   PC1>show ipv6
+   PC1>ip 2005::9/64 2005::1
+   PC1>ping ipv6 2005::8
+   
+   PC-4
+   PC1>show ipv6
+   PC1>ip 2005::8/64 2005::1
+   PC1>ping ipv6 2005::9
+   
+   PC-3
+   PC1>show ipv6
+   PC1>ip 2006::7/64 2006::1
+   PC1>ping ipv6 2005::8
+   
+   PC-2
+   PC1>show ipv6
+   PC1>ip 2006::10/64 2006::1
+   PC1>ping ipv6 2006::7
