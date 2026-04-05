@@ -38,7 +38,7 @@ Jenis QoS Pada Jaringan
      - mendukung pengiriman unicast dan multicast
      - tidak menentukan routing, tetapi bekerja sama dengan protokol routing yang ada.
    - Jenis RSVP
-     - Controlled Load
+     - Controled Load
      - memberikan alokasi bandwith
      - tidak memberikan garansi delay  
    - Guaranteed Service
@@ -46,11 +46,11 @@ Jenis QoS Pada Jaringan
      - Memberikan Garansi Delay Maksimum
      
    
-   LFI - Link Fragmentation nd Interleaving
+   LFI - Link Fragmentation and Interleaving
    - Fragmentation 
      - Paket data yang besar dibagi menjadi paket yang relatif kecil.
    - Interleaving
-     - Melakukan perhitungan nilai dan menempatkan paket-paket pada porsi yang tepat. (WFQ) 
+     - Melakukan perhitungan nilai dan menempatkan paket-paket pada routing yang tepat. (WFQ) 
    
 
 Klasifikasi Traffik
