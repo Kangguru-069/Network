@@ -4,7 +4,7 @@ Transport pada sebuah jaringan
    - ACK  --> Signal ketika packet telah sampai atau diterima
    - NACK --> Signal yang diterima ketika paket tidak sampai atau packet loss
    - bersifat Reliable artinya semua paket harus sampai pada penerima tanpa error, jika paket tidak sampai/error maka akan dikirim ulang.
-   - Dapat melakukan vritual connection atau logical connection.
+   - Dapat melakukan virtual connection atau logical connection.
 
 2. UDP (digunakan pada Datagram)
    - ACK  --> Signal ketika packet telah sampai atau diterima
