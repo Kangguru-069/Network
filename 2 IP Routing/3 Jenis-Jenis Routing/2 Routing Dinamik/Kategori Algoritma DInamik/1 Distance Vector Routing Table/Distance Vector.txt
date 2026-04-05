@@ -3,9 +3,9 @@ Distance Vector (Bellman dan Ford-Fulkerson) (Jarak/Arah)
 - Setiap Router mengirim informasi tabel routing yang dimiliki ke router lain yang saling terhubung dengan mencari jalur yang terbaik.
 - Table routing dibuat berdasarkan informasi yang didapat/diberikan.
 - Perubahan topologi diupdate setiap 30 detik, hal ini menyebabkan perubahan suatu router mungkin tidak diketahui
-  oleh router lain sehingga terjad routing loop.
+  oleh router lain sehingga terjadi routing loop.
 - Routing loop menyebabkan paket dikirim berulang-ulang mengelilingi jaringan sampai paket dibuang (di drop) oleh router.
-- Jika routing loop terjadi jaringan akan dipenuhi oleh paket-paket yang tidak pernah sampaike tujuan.
+- Jika routing loop terjadi jaringan akan dipenuhi oleh paket-paket yang tidak pernah sampai ke tujuan.
 
 
 yang merupakan Protokol Distance adalah  IGRP, RIP, BGP.
