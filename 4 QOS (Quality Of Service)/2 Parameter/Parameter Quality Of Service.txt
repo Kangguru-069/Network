@@ -53,7 +53,7 @@ Parameter-parameter QoS pada jaringan :
 - Packet Loss
   - Packet Loss adalah jumlah banyaknya paket yang hilang dari paket total. 
     Packet Loss dapat disebabkan oleh kemacetan jaringan, yang menghasilkan paket drop. Penyebab kerugian lainnya adalah adanya
-    saluran komunikasi yag buruk, terutama di saluran nirkabel. 
+    saluran komunikasi yang buruk, terutama di saluran nirkabel. 
     1. Congestion
     2. Node yang bekerja melebihi kapasitas buffer
     3. Memory yang terbatas pada node
