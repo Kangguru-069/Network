@@ -1,7 +1,7 @@
 Jenis QoS Pada Jaringan
 
 1. Best Effort -> Kareakteristik dasar Jaringan IP
-   - Memberikan Kualitas layan sebaik mungkin berdasarkan sumber daya yang ada pada jaringan.
+   - Memberikan Kualitas layanan sebaik mungkin berdasarkan sumber daya yang ada pada jaringan.
      Karakteristik :
      - Antrian FIFO
      - Tanpa Garansi
@@ -14,7 +14,7 @@ Jenis QoS Pada Jaringan
      rata-rata bandwith yang didapat lebih besar, rata-rata paket loss berkurang);
 
 3. Integrated Sevice, disebut juga Hard QoS
-   - Secara Khusus melakukan reservasu sumber daya jaringan bagi traffik tertentu. 
+   - Secara Khusus melakukan reservasi sumber daya jaringan bagi traffik tertentu. 
      Kualitas layanan diberikan melalui alokasi bandwith secara end-to-end.
    - Mekanisme : Protokol Reservasi RSVP
    
@@ -28,10 +28,10 @@ Jenis QoS Pada Jaringan
    - Pada setiap hop, admission control memeriksa apakah tersedia sumber daya yang cukup untuk menerima
      reservasi baru.
    - Resources reservation ditentukan oleh klasifikasi paket dan mekanisme scheduling
-   - Dua model layanan yang digunakan : Guaranteed Service dan Controlled Load. 
+   - Dua model layanan yang digunakan : Guaranteed Service dan Controled Load. 
    
    RSVP (Resource Reservation Protocol)
-   - Alokasi bandwith end-to-end sebelumpaket dikirimkan 
+   - Alokasi bandwith end-to-end sebelum paket dikirimkan 
    - Sifat :
      - Simple (Satu Arah)
      - Receiver Oriented (aktivasi RSVP oleh penerima)
