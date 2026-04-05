@@ -38,7 +38,7 @@ A. Jenis-Jenis Protokol Routing Dinamis
 B. Pengertian dan Fungsi Protokol
    1. RIP (Routing Information Protocol)
       - Merupakan protokol yang paling tua, prosesnya lambat dan sering terjadi routing loop
-      - Merupakan protokolyang memberikan routing  table berdasarkan router yang terhubung langsung. 
+      - Merupakan protokol yang memberikan routing  table berdasarkan router yang terhubung langsung. 
         yang dimana, router selanjutnya akan  memberikan informasi ke router berikutnya yang terhubung langsung dengan
         router tersebut. 
       - Menggunakan Algoritma Distance Vector (Algoritma Bellman-Ford).
@@ -101,7 +101,7 @@ B. Pengertian dan Fungsi Protokol
       Langkahnya, menemukan node awal kemudian diberi nilai ke node-node yang terdekat satu persatu
       dan melakukan pengembangan pencarian dari satu node ke node lainnya.
       - Data yang berupa bit-bit dikemas menjadi paket data.
-      - Setiap Router menguodate tabel routing
+      - Setiap Router mengupdate tabel routing
       - Setiap mengupdate, sebuah router memberitahukan pada router lainnya jarak dari router tesebut.
       - Setelah tiap router mendapat informasi jarak, maka Algoritma Djikstar akan menghitung semua jarak yang akan
         dikirimkan menuju alamat tujuan.
