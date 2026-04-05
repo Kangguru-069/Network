@@ -7,7 +7,7 @@ IP ROUTING
    - Fungsi Router memfoward data (fungsi IP Forward harus diaktifkan) menggunakan routing protokol (Algoritma Routing).
    - Data-data yang terhubung ke internet dikirim dalam bentuk datagram, yaitu paket data yang didefinisikan oleh IP.
      Datagram memiliki alamat tujuan paket data. Internet Protokol memeriksa alamat ini untuk menyampaikan datagram dari device asal ke device tujuan.
-   - Jika alamat tujuan datagram terletak pada suatu jaringan yang sama maka datgram tersebut akan langsung disampaikan.
-   - Jika alamat tujuan datagram tidak terdapat pada jaringan yang sama maka akan disampaikan pda router yang paling tepat.
+   - Jika alamat tujuan datagram terletak pada suatu jaringan yang sama maka datagram tersebut akan langsung disampaikan.
+   - Jika alamat tujuan datagram tidak terdapat pada jaringan yang sama maka akan disampaikan pada router yang paling tepat.
    - Router berfungsi sebagai penguhubung dua buah jaringan yang berbeda, tepatnya mendapatkan rute terbaik agar dapat mencapai network yang diharapkan.
   
