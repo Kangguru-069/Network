@@ -7,7 +7,7 @@ Quality Of Service
 - QoS dapat disediakan melalui pemberian prioritas terhadap suatu paket terhadap paket lainnya melalui 
   alokasi sumber daya yang ada untuk aliran/paket berbeda dalam suatu jaringan.
   
-- Tujuan utama QoS : memeberikan prioritas kepada traffik tertentu yang mencakup bandwith yang tetap, 
+- Tujuan utama QoS : memberikan prioritas kepada traffik tertentu yang mencakup bandwith yang tetap, 
   delay serta jitter yang terkontrol dan pengurangan packet loss.
   Untuk mengatasi kekurangan pada jaringan yang bersifat IP.
 
