@@ -1,6 +1,6 @@
 Quality Of Service
 
-- QoS adalah Kemampuan penyediaan jaminan sumber daya dan pembedaan layanan (Service Diffrentiation) 
+- QoS adalah Kemampuan penyediaan jaminan sumber daya dan pembedaan layanan (Service Differentiation) 
   pada berbagai jenis aplikasi sehingga performa dari aplikasi terhadap delay, jitter atau paket loss
   dapat berjalan dengan baik.
  
