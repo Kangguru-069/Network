@@ -10,6 +10,6 @@ BATASAN IP yang Boleh digunakan di jaringan IP LOKAL :
 
 2. 172.16.0.0  --- 172.31.255.255   ---> IP Class B
 
-3. 192.16.0.0  --- 192.168.255.255  ---> IP sClass C
+3. 192.16.0.0  --- 192.168.255.255  ---> IP Class C
 
 4. 169.254.0.0 --- 169.254.255.255
