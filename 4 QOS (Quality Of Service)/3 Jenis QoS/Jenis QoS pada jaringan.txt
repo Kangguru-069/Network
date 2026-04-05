@@ -1,6 +1,6 @@
 Jenis QoS Pada Jaringan
 
-1. Best Effort -> Kareakteristik dasar Jaringan IP
+1. Best Effort -> Karakteristik dasar Jaringan IP
    - Memberikan Kualitas layanan sebaik mungkin berdasarkan sumber daya yang ada pada jaringan.
      Karakteristik :
      - Antrian FIFO
