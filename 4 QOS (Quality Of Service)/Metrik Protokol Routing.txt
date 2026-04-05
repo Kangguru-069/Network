@@ -8,4 +8,4 @@ Metrik pada Protokol Routing
 - Reliability
 
 Load Balancing
-- Kemampuan dari router mendistribusikan paket diantara jalut yang memiliki cost yang sama.
+- Kemampuan dari router mendistribusikan paket diantara jalur yang memiliki cost yang sama.
