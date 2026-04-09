@@ -1,0 +1,100 @@
+Membuat Jaringan VLAN Server Dan Client
+Menggunakan Router Cisco 3640
+
+A. Setting Router (Router 1)
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#ip address 172.48.105.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting Domain Server (Router 2)
+   R2#config terminal 
+   R2(config)#interface Ethernet0/0
+   R2(config-if)#no shutdown
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   R2#config terminal
+   R2(config)#interface Ethernet0/0
+   R2(config-if)#ip address 172.48.105.5 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+C. Setting VLAN (Router 2)
+   R2#config terminal 
+   R2(config)#interface Ethernet0/1
+   R2(config-if)#ip address 10.111.42.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   R2#config terminal 
+   R2(config)#interface Ethernet0/2
+   R2(config-if)#ip address 10.111.48.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+
+D. Setting PC
+   PC-Server   
+   PC1>ip 172.48.105.20/24 172.48.105.1
+   PC1>show ip
+   PC1>save
+   
+   PC2>ip 172.48.105.25/24 172.48.105.1
+   PC2>show ip
+   PC2>save
+   
+   PC3>ip 172.48.105.30/24 172.48.105.1
+   PC3>show ip
+   PC3>save
+   
+   PC4>ip 172.48.105.35/24 172.48.105.1
+   PC4>show ip
+   PC4>save
+   
+   PC-CLIENT ETHERNET 0/1
+   PC5>ip 10.111.42.50/24 10.111.42.1
+   PC5>show ip
+   PC5>save
+   
+   PC6>ip 10.111.42.65/24 10.111.42.1
+   PC6>show ip
+   PC6>save
+   
+   PC7>ip 10.111.42.60/24 10.111.42.1
+   PC7>show ip
+   PC7>save
+   
+   PC8>ip 10.111.42.55/24 10.111.42.1
+   PC8>show ip
+   PC8>save
+   
+   
+   PC-CLIENT ETHERNET 0/2
+   PC9>ip 10.111.48.45/24 10.111.48.1
+   PC9>show ip
+   PC9>save
+   
+   PC10>ip 10.111.48.30/24 10.111.48.1
+   PC10>show ip
+   PC10>save
+   
+   PC11>ip 10.111.48.70/24 10.111.48.1
+   PC11>show ip
+   PC11>save
+   
+   PC12>ip 10.111.48.65/24 10.111.48.1
+   PC12>show ip
+   PC12>save

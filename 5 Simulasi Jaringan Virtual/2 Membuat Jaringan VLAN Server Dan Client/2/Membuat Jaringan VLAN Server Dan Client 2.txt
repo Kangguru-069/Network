@@ -1,0 +1,103 @@
+Membuat Jaringan VLAN Server Dan Client
+Menggunakan Router Cisco 3640
+
+A. Setting Router (Router 1)
+   R1#config terminal 
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal
+   R1(config)#interface Ethernet0/0
+   R1(config-if)#ip address 192.157.84.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting Domain Server (Router 2)
+   R2#config terminal 
+   R2(config)#interface Ethernet0/0
+   R2(config-if)#no shutdown
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   R2#config terminal
+   R2(config)#interface Ethernet0/0
+   R2(config-if)#ip address 192.157.84.5 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+C. Setting VLAN (Router 2)
+   VLAN 100
+   R2#config terminal 
+   R2(config)#interface Ethernet0/2
+   R2(config-if)#interface Ethernet 0/2.135
+   R2(config-subif)#encapsulation dot1q 100
+   R2(config-if)#ip address 172.25.135.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   VLAN 200
+   R2#config terminal 
+   R2(config)#interface Ethernet0/2
+   R2(config-if)#interface Ethernet 0/2.145
+   R2(config-subif)#encapsulation dot1q 200
+   R2(config-if)#ip address 172.25.145.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   VLAN 300
+   R2#config terminal 
+   R2(config)#interface Ethernet0/2
+   R2(config-if)#interface Ethernet 0/2.1555
+   R2(config-subif)#encapsulation dot1q 300
+   R2(config-if)#ip address 172.25.155.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+
+D. Setting PC
+   PC-Server   
+   PC1>ip 192.157.84.165/24 192.157.84.1
+   PC1>show ip
+   PC1>save
+   
+   PC2>ip 192.157.84.145/24 192.157.84.1
+   PC2>show ip
+   PC2>save
+   
+   PC-CLIENT ETHERNET 0/2
+   VLAN 100
+   PC3>ip 172.25.135.87/24 172.25.135.1
+   PC3>show ip
+   PC3>save
+   
+   PC4>ip 172.25.135.62/24 172.25.135.1
+   PC4>show ip
+   PC4>save
+   
+   VLAN 200
+   PC5>ip 172.25.145.96/24 172.25.145.1
+   PC5>show ip
+   PC5>save
+   
+   PC6>ip 172.25.145.52/24 172.25.145.1
+   PC6>show ip
+   PC6>save
+   
+   VLAN 300
+   PC7>ip 172.25.155.76/24 172.25.155.1
+   PC7>show ip
+   PC7>save
+   
+   PC8>ip 172.25.155.29/24 172.25.155.1
+   PC8>show ip
+   PC8>save
+   
+ 
