@@ -1,0 +1,49 @@
+Membuat Jaringan Topologi Tree
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Topologi bus seringkali digunakan untuk membangun sebuah lab, kantor, warnet. Karena pembuatannya membutuhkan biaya yang rendah. 
+1. Kelebihan
+   - Biaya pembuatan toplogi ini membutuhkan biaya yang sedikit
+   - Topologi bus ini daoat dikembangkan tanpa mengganggu perangkat lainnya
+   - Memiliki layout yang sangat sederhana
+   
+2. Kekurangan
+   - Membutuhkan repeater untuk untuk jarak jauh atau memperkuat sinyal
+   - Jika terjadi gangguan di jalur utama, maka seluruh jaringan akan mengalami gangguan atau lumpuh
+   - Sering terjadi kepadatan lalu lintas data pada jalur utama
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Router yang digunakan : Router Cisco 2600
+A. Setting Router (Router 1)
+   R1#config terminal 
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#ip address 10.126.144.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting PC
+   
+   PC1>ip 10.126.144.93/24 10.126.144.1
+   PC1>show ip
+   PC1>save
+   
+   PC2>ip 10.126.144.73/24 10.126.144.1
+   PC2>show ip
+   PC2>save
+   
+   PC3>ip 10.126.144.109/24 10.126.144.1
+   PC3>show ip
+   PC3>save
+   
+   PC4>ip 10.126.144.121/24 10.126.144.1
+   PC4>show ip
+   PC4>save
+   
