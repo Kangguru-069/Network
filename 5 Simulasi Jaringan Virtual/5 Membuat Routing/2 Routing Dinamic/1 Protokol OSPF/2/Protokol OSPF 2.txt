@@ -1,0 +1,152 @@
+Protokol OSPF
+
+-------------------------------------------
+A 67.15.125.0/27     |
+B 95.65.190.0/27     |
+                      } 32 Host
+C 42.35.140.0/27     |
+D 53.75.185.0/27     |
+
+
+NETWORK 1            |
+192.146.139.0/26     |
+                      } 64 Host
+NETWORK 2            |
+192.146.171.0/26     |
+---------------------------------------------
+
+Router yang digunakan : Router Cisco 3640     
+A. Setting Router (ROUTER-1)
+   NETWORK-1
+   R1#config terminal 
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#ip address 192.146.171.1 255.255.255.192
+   R1(config-if)#no shutdown
+        
+   R1(config-if)#interface ethernet 0/1
+   R1(config-if)#ip address 53.75.185.1 255.255.255.224
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#interface ethernet 0/2
+   R1(config-if)#ip address 95.65.190.1 255.255.255.224
+   R1(config-if)#no shutdown  
+   
+   R1(config-if)#exit
+   R1(config)#write (Save progress)
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting Router (ROUTER-2)  
+   NETWORK-2
+   R2#config terminal 
+   R2(config)#interface ethernet 0/0
+   R2(config-if)#ip address 192.146.139.1 255.255.255.192
+   R2(config-if)#no shutdown
+   
+   R2(config-if)#interface ethernet 0/2
+   R2(config-if)#ip address 42.35.140.1 255.255.255.224
+   R2(config-if)#no shutdown
+   
+   R2(config-if)#interface ethernet 0/3
+   R2(config-if)#ip address 67.15.125.1 255.255.255.224
+   R2(config-if)#no shutdown  
+   
+   R2(config-if)#exit
+   R2(config)#write (Save progress)
+   R2(config)#exit
+   R2#show ip interface brief
+   
+C. Setting Router (ROUTER-3)
+   R3#config terminal 
+   R3(config)#interface ethernet 0/2
+   R3(config-if)#ip address 95.65.190.2 255.255.255.224
+   R3(config-if)#no shutdown
+   
+   R3(config-if)#interface ethernet 0/3
+   R3(config-if)#ip address 53.75.185.2 255.255.255.224
+   R3(config-if)#no shutdown  
+   
+   R3(config-if)#exit
+   R3(config)#write (Save progress)
+   R3(config)#exit
+   R3#show ip interface brief
+   
+D. Setting Router (ROUTER-4) 
+   R4#config terminal       
+   R4(config)#interface ethernet 0/1
+   R4(config-if)#ip address 42.35.140.2 255.255.255.224
+   R4(config-if)#no shutdown
+   
+   R4(config-if)#interface ethernet 0/2
+   R4(config-if)#ip address 53.75.185.2 255.255.255.224
+   R4(config-if)#no shutdown  
+   
+   R4(config-if)#exit
+   R4(config)#write (Save progress)
+   R4(config)#exit
+   R4#show ip interface brief
+   
+E. Setting Protokol OSPF
+   ROUTER-1
+   R1#config terminal      
+   R1(config)#router ospf 1
+   R1(config-router)#network 53.75.185.0 0.0.0.31 area 0
+   R1(config-router)#network 95.65.190.0 0.0.0.31 area 0
+   R1(config-router)#network 192.146.171.0 0.0.0.63 area 0
+   R1(config)#write (Save progress)
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip route  
+   
+   ROUTER-2
+   R2#config terminal      
+   R2(config)#router ospf 1
+   R2(config-router)#network 42.35.140.0 0.0.0.31 area 0
+   R2(config-router)#network 67.15.125.0 0.0.0.31 area 0
+   R2(config-router)#network 192.146.139.0 0.0.0.63 area 0
+   R2(config)#write (Save progress)
+   R2(config-if)#exit
+   R2(config)#exit 
+   R2#show ip route
+   
+   ROUTER-3
+   R3#config terminal      
+   R3(config)#router ospf 1
+   R3(config-router)#network 95.65.190.0 0.0.0.31 area 0
+   R3(config-router)#network 67.15.125.0 0.0.0.31 area 0
+   R3(config-if)#exit
+   R3(config)#write (Save progress)
+   R3(config)#exit    
+   R3#show ip route
+   
+   ROUTER-4
+   R4#config terminal      
+   R4(config)#router ospf 1
+   R4(config-router)#network 42.35.140.0 0.0.0.31 area 0
+   R4(config-router)#network 53.75.185.0 0.0.0.31 area 0
+   R4(config-if)#exit
+   R4(config)#write (Save progress)
+   R4(config)#exit 
+   R4#show ip route
+   
+F. Setting PC
+   NETWORK-1
+   PC3>ip 192.146.171.76/26 192.146.171.1 
+   PC3>show ip
+   PC3>save
+   
+   PC2>ip 192.146.171.92/29 192.146.171.1
+   PC2>show ip
+   PC2>save
+   
+   NETWORK-2
+   PC1>ip 192.146.139.122/26 192.146.139.1  
+   PC1>show ip   
+   PC1>save
+   
+   PC4>ip 192.146.139.184/26 192.146.139.1 
+   PC4>show ip
+   PC4>save
+   
+
+   
