@@ -1,0 +1,147 @@
+Protokol EIGRP
+
+A 4.57.79.0/30      |
+B 8.122.21.0/30     |
+                     } 4 Host
+C 12.99.35.0/30     |
+D 16.213.88.0/30    |
+
+Network 1           |
+192.164.112.0/26    |
+                     } 64 Host
+Network 2           |
+192.126.216.0/26    |
+
+Router yang digunakan : Router Cisco 3660     
+A. Setting Router (ROUTER-1)
+   NETWORK-1
+   R1#config terminal 
+   R1(config)#interface ethernet 1/0
+   R1(config-if)#ip address 192.164.112.1 255.255.255.192
+   R1(config-if)#no shutdown
+       
+   R1(config-if)#interface ethernet 2/2
+   R1(config-if)#ip address 12.99.35.1 255.255.255.252
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#interface ethernet 2/1
+   R1(config-if)#ip address 8.122.21.1 255.255.255.252
+   R1(config-if)#no shutdown  
+   
+   R1(config-if)#exit
+   R1(config)#write
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting Router (ROUTER-2)  
+   R2#config terminal 
+   R2(config)#interface ethernet 2/2
+   R2(config-if)#ip address 12.99.35.2 255.255.255.252
+   R2(config-if)#no shutdown
+   
+   R2(config-if)#interface ethernet 2/1
+   R2(config-if)#ip address 4.57.79.1 255.255.255.252
+   R2(config-if)#no shutdown  
+   
+   R2(config-if)#exit
+   R2(config)#write
+   R2(config)#exit
+   R2#show ip interface brief
+   
+C. Setting Router (ROUTER-3)      
+   R3#config terminal  
+   R3(config)#interface ethernet 2/2
+   R3(config-if)#ip address 8.122.21.2 255.255.255.252
+   R3(config-if)#no shutdown
+   
+   R3(config-if)#interface ethernet 2/1
+   R3(config-if)#ip address 16.213.88.1 255.255.255.252
+   R3(config-if)#no shutdown  
+   
+   R3(config-if)#exit
+   R3(config)#write
+   R3(config)#exit
+   R3#show ip interface brief
+   
+D. Setting Router (ROUTER-4)
+   NETWORK-2
+   R4#config terminal 
+   R4(config)#interface ethernet 1/0
+   R4(config-if)#ip address 192.126.216.1 255.255.255.192
+   R4(config-if)#no shutdown
+        
+   R4(config-if)#interface ethernet 2/2
+   R4(config-if)#ip address 16.213.88.2 255.255.255.252 
+   R4(config-if)#no shutdown
+   
+   R4(config-if)#interface ethernet 2/1
+   R4(config-if)#ip address 4.57.79.2 255.255.255.252
+   R4(config-if)#no shutdown  
+   
+   R4(config-if)#exit
+   R4(config)#write
+   R4(config)#exit
+   R4#show ip interface brief
+   
+E. Setting Protokol OSPF
+   ROUTER-1
+   R1#config terminal      
+   R1(config)#router eigrp 200
+   R1(config-router)#network 12.99.35.0 0.0.0.3
+   R1(config-router)#network 4.57.79.0 0.0.0.3
+   R1(config-router)#network 192.164.112.0 0.0.0.63
+   R1(config)#write
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip route  
+   
+   ROUTER-2
+   R2#config terminal      
+   R2(config)#router eigrp 200
+   R2(config-router)#network 12.99.35.0 0.0.0.3
+   R2(config-router)#network 4.57.79.0 0.0.0.3
+   R2(config)#write (Save progress)
+   R2(config-if)#exit
+   R2(config)#exit 
+   R2#show ip route
+   
+   ROUTER-3
+   R3#config terminal      
+   R3(config)#router eigrp 200
+   R3(config-router)#network 8.122.21.0 0.0.0.3
+   R3(config-router)#network 16.213.88.0 0.0.0.3   
+   R3(config-if)#exit
+   R3(config)#write
+   R3(config)#exit    
+   R3#show ip route
+   
+   ROUTER-4
+   R4#config terminal      
+   R4(config)#router eigrp 200
+   R4(config-router)#network 16.213.88.0 0.0.0.3
+   R4(config-router)#network 4.57.79.0 0.0.0.3
+   R4(config-router)#network 192.126.216.0 0.0.0.63
+   R4(config-if)#exit
+   R4(config)#write
+   R4(config)#exit 
+   R4#show ip route
+
+F. Setting PC
+   NETWORK-1
+   PC4>ip 192.164.112.35/29 192.164.112.1 
+   PC4>show ip
+   PC4>save
+   
+   PC2>ip 192.164.112.24/29 192.164.112.1 
+   PC2>show ip
+   PC2>save
+   
+   NETWORK-2
+   PC1>ip 192.126.216.43/29 192.126.216.1 
+   PC1>show ip   
+   PC1>save
+   
+   PC3>ip 192.126.216.61/29 192.126.216.1  
+   PC3>show ip
+   PC3>save
+   
