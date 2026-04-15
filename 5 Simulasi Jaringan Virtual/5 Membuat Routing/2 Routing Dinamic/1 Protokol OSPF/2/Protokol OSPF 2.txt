@@ -135,7 +135,7 @@ F. Setting PC
    PC1>show ip
    PC1>save
    
-   PC3>ip 192.146.171.60/29 192.146.171.1
+   PC3>ip 192.146.171.60/26 192.146.171.1
    PC3>show ip
    PC3>save
    
