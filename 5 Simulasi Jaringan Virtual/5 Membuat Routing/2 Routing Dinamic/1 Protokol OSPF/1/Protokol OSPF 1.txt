@@ -131,20 +131,20 @@ E. Setting Protokol OSPF
    
 F. Setting PC
    NETWORK-1
-   PC3>ip 10.50.170.153/29 10.50.170.1 
+   PC3>ip 10.50.170.5/29 10.50.170.1 
    PC3>show ip
    PC3>save
    
-   PC2>ip 10.50.170.87/29 10.50.170.1 
+   PC2>ip 10.50.170.4/29 10.50.170.1 
    PC2>show ip
    PC2>save
    
    NETWORK-2
-   PC1>ip 10.50.180.191/29 10.50.180.1 
+   PC1>ip 10.50.180.6/29 10.50.180.1 
    PC1>show ip   
    PC1>save
    
-   PC4>ip 10.50.180.134/29 10.50.180.1 
+   PC4>ip 10.50.180.3/29 10.50.180.1 
    PC4>show ip
    PC4>save
    
