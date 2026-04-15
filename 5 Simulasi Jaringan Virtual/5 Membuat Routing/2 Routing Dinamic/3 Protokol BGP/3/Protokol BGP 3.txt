@@ -1,0 +1,177 @@
+Protokol BGP
+
+loopback ISP A
+125.236.85.196/32
+
+loopback ISP B
+154.214.95.172/32
+
+A 94.70.62.0/30 
+B 80.128.99.0/30
+C 77.18.157.0/30
+
+Network A
+192.118.89.0/26
+
+Network B
+192.158.78.0/26
+
+Router yang digunakan : Router Cisco 3620     
+A. Setting Router (ROUTER-CORE-A)  
+   R3#config terminal      
+   R3(config-if)#interface ethernet 0/1
+   R3(config-if)#ip address 94.70.62.1 255.255.255.252
+   R3(config-if)#no shutdown
+   
+   R3(config-if)#interface ethernet 0/0
+   R3(config-if)#ip address 80.128.99.1 255.255.255.252
+   R3(config-if)#no shutdown
+   
+   R3(config-if)#interface loopback 0
+   R3(config-if)#ip address 125.236.85.196 255.255.255.255
+   R3(config-if)#no shutdown  
+   
+   R3(config-if)#exit
+   R3(config)#write
+   R3(config)#exit
+   R3#show ip interface brief
+   
+B. Setting Router (ROUTER-CPE-A)  
+   R1#config terminal      
+   R1(config-if)#interface ethernet 0/0
+   R1(config-if)#ip address 80.128.99.2 255.255.255.252
+   R1(config-if)#no shutdown
+  
+   R1(config-if)#interface ethernet 0/3
+   R1(config-if)#ip address 192.118.89.1 255.255.255.192
+   R1(config-if)#no shutdown
+   
+   R1(config-if)#exit
+   R1(config)#write
+   R1(config)#exit
+   R1#show ip interface brief
+
+C. Setting Router (ROUTER-CORE-B)  
+   R2#config terminal      
+   R2(config-if)#interface ethernet 0/1
+   R2(config-if)#ip address 94.70.62.2 255.255.255.252
+   R2(config-if)#no shutdown
+  
+   R2(config-if)#interface ethernet 0/0
+   R2(config-if)#ip address 77.18.157.1 255.255.255.252
+   R2(config-if)#no shutdown
+   
+   R2(config-if)#interface loopback 0
+   R2(config-if)#ip address 154.214.95.172 255.255.255.255
+   R2(config-if)#no shutdown  
+   
+   R2(config-if)#exit
+   R2(config)#write
+   R2(config)#exit
+   R2#show ip interface brief
+   
+D. Setting Router (ROUTER-CPE-B)  
+   R4#config terminal      
+   R4(config-if)#interface ethernet 0/0
+   R4(config-if)#ip address 77.18.157.2 255.255.255.252
+   R4(config-if)#no shutdown
+   
+   R4(config-if)#interface ethernet 0/3
+   R4(config-if)#ip address 192.158.78.1 255.255.255.192
+   R4(config-if)#no shutdown
+   
+   R4(config-if)#exit
+   R4(config)#write
+   R4(config)#exit
+   R4#show ip interface brief
+   
+E. Setting Protokol OSPF
+   ROUTER-CORE-A
+   R3#config terminal      
+   R3(config)#router ospf 150
+   R3(config-router)#network 80.128.99.0 0.0.0.3 area 0
+   R3(config-router)#network 125.236.85.196 0.0.0.0 area 0
+   R3(config-router)#redistribute bgp 2648 subnets
+   R3(config-router)#write
+   R3(config-if)#exit
+   R3(config)#exit
+   R3#show ip route 
+   
+   ROUTER-CPE-A
+   R1#config terminal      
+   R1(config)#router ospf 150
+   R1(config-router)#network 80.128.99.0 0.0.0.3 area 0
+   R1(config-router)#network 192.118.89.0 0.0.0.63 area 0
+   R1(config-router)#write
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip route 
+   
+   ROUTER-CORE-B
+   R2#config terminal      
+   R2(config)#router ospf 350
+   R2(config-router)#network 77.18.157.0 0.0.0.3 area 0
+   R2(config-router)#network 154.214.95.172 0.0.0.0 area 0
+   R2(config-router)#redistribute bgp 7359 subnets
+   R2(config-router)#write
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip route 
+   
+   ROUTER-CPE-B
+   R4#config terminal      
+   R4(config)#router ospf 350
+   R4(config-router)#network 77.18.157.0 0.0.0.3 area 0
+   R4(config-router)#network 192.158.78.0 0.0.0.63 area 0
+   R4(config-router)#write
+   R4(config-if)#exit
+   R4(config)#exit
+   R4#show ip route 
+   
+F. Setting Protokol BGP
+   ROUTER-CORE-A
+   R3#config terminal      
+   R3(config)#router bgp 2648
+   R3(config-router)#neighbor 94.70.62.2 remote-as 7359
+   R3(config-router)#network 80.128.99.0 mask 255.255.255.252
+   R3(config-router)#network 125.236.85.196 mask 255.255.255.255
+   R3(config-router)#network 192.118.89.0 mask 255.255.255.192
+   R3(config-router)#redistribute ospf 150
+   R3(config-router)#write
+   R3(config-if)#exit
+   R3(config)#exit
+   R3#show ip route 
+   
+   ROUTER-CORE-B
+   R2#config terminal      
+   R2(config)#router bgp 7359
+   R2(config-router)#neighbor 94.70.62.1 remote-as 2648
+   R2(config-router)#network 77.18.157.0 mask 255.255.255.252
+   R2(config-router)#network 154.214.95.172 mask 255.255.255.255
+   R2(config-router)#network 192.158.78.0 mask 255.255.255.192
+   R2(config-router)#redistribute ospf 350
+   R2(config-router)#write
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip route 
+    
+   
+G. Setting PC
+   NETWORK-1
+   PC3>ip 192.118.89.57/26 192.118.89.1 
+   PC3>show ip
+   PC3>save
+   
+   PC1>ip 192.118.89.39/26 192.118.89.1 
+   PC1>show ip
+   PC1>save
+   
+   NETWORK-2
+   PC2>ip 192.158.78.24/26 192.158.78.1 
+   PC2>show ip   
+   PC2>save
+   
+   PC4>ip 192.158.78.40/26 192.158.78.1  
+   PC4>show ip
+   PC4>save
+   
