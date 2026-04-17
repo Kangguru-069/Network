@@ -1,0 +1,246 @@
+VPN and Tunneling
+
+A 35.192.125.0/30
+B 40.167.150.0/30
+
+Router A
+192.134.222.1/30
+
+Router B
+192.134.222.2/30
+
+PC
+Network 1
+20.100.77.0/27
+Network 2
+65.154.195.0/27
+Network 3
+80.136.10.0/27
+Network 4
+49.127.25.0/27
+
+
+Router yang digunakan : Router Cisco 3660   
+A. Setting INTERNET Connection (INTERNET)  
+   INTERNET#config terminal      
+   INTERNET(config-if)#interface ethernet 4/0
+   INTERNET(config-if)#ip address 35.192.125.1 255.255.255.252
+   INTERNET(config-if)#no shutdown
+   
+   INTERNET(config-if)#interface ethernet 4/1
+   INTERNET(config-if)#ip address 40.67.150.1 255.255.255.252
+   INTERNET(config-if)#no shutdown
+   
+   INTERNET(config-if)#exit
+   INTERNET(config)#write
+   INTERNET(config)#exit
+   INTERNET#show ip interface brief
+     
+B. Setting Router (ROUTER-A)  
+   ROUTER-A#config terminal      
+   ROUTER-A(config-if)#interface ethernet 1/0
+   ROUTER-A(config-if)#ip address 20.100.77.1 255.255.255.224
+   ROUTER-A(config-if)#no shutdown
+   
+   ROUTER-A(config-if)#interface ethernet 1/1
+   ROUTER-A(config-if)#ip address 65.154.195.1 255.255.255.224
+   ROUTER-A(config-if)#no shutdown
+   
+   ROUTER-A(config-if)#interface ethernet 4/0
+   ROUTER-A(config-if)#ip address 35.192.125.2 255.255.255.252
+   ROUTER-A(config-if)#no shutdown  
+   
+   ROUTER-A(config-if)#exit
+   ROUTER-A(config)#write
+   ROUTER-A(config)#exit
+   ROUTER-A#show ip interface brief
+   
+   Setting Router (ROUTER-B)  
+   ROUTER-B#config terminal      
+   ROUTER-B(config-if)#interface ethernet 3/2
+   ROUTER-B(config-if)#ip address 80.136.10.1 255.255.255.224
+   ROUTER-B(config-if)#no shutdown
+   
+   ROUTER-B(config-if)#interface ethernet 3/0
+   ROUTER-B(config-if)#ip address 49.127.25.1 255.255.255.224
+   ROUTER-B(config-if)#no shutdown
+   
+   ROUTER-B(config-if)#interface ethernet 4/0
+   ROUTER-B(config-if)#ip address 40.167.150.2 255.255.255.252
+   ROUTER-B(config-if)#no shutdown  
+   
+   ROUTER-B(config-if)#exit
+   ROUTER-B(config)#write
+   ROUTER-B(config)#exit
+   ROUTER-B#show ip interface brief
+
+C. Setting IP Route
+   ROUTER-A
+   ROUTER-A#config terminal
+   ROUTER-A(config)#ip route 0.0.0.0 0.0.0.0 35.192.125.1
+   
+   ROUTER-A(config)#exit
+   ROUTER-A(config)#write
+   ROUTER-A(config)#exit
+   ROUTER-A#show ip interface brief
+   ROUTER-A#show ip route
+   
+   ROUTER-B
+   ROUTER-A#config terminal
+   ROUTER-B(config)#ip route 0.0.0.0 0.0.0.0 40.67.150.1
+   
+   ROUTER-B(config)#exit
+   ROUTER-B(config)#write
+   ROUTER-B(config)#exit
+   ROUTER-B#show ip interface brief
+   ROUTER-B#show ip route
+   
+D. Setting Tunnel
+   ROUTER-A
+   ROUTER-A#config terminal
+   ROUTER-A(config-if)#interface tunnel 0
+   ROUTER-A(config-if)#tunnel source ethernet 4/0
+   ROUTER-A(config-if)#tunnel destination 40.167.150.2
+   ROUTER-A(config-if)#ip address 192.134.222.1 255.255.255.252
+   
+   ROUTER-A(config-if)#exit
+   ROUTER-A(config)#write
+   ROUTER-A(config)#exit
+   ROUTER-A#show ip interface brief
+      
+   ROUTER-B
+   ROUTER-B#config terminal
+   ROUTER-B(config-if)#interface tunnel 0
+   ROUTER-B(config-if)#tunnel source ethernet 4/0
+   ROUTER-B(config-if)#tunnel destination 35.192.125.2
+   ROUTER-B(config-if)#ip address 192.134.222.2 255.255.255.252
+   
+   ROUTER-B(config-if)#exit
+   ROUTER-B(config)#write
+   ROUTER-B(config)#exit
+   ROUTER-B#show ip interface brief
+
+D. Setting IP Route
+   1. Dari ROUTER-A ke ROUTER-B (PC-1 dan PC-4)
+      ROUTER-A#config terminal
+      ROUTER-A(config)#ip route 80.136.10.0 255.255.255.224 192.134.222.2  
+      ROUTER-A(config)#ip route 49.127.25.0 255.255.255.224 192.134.222.2
+   
+      ROUTER-A(config-if)#exit
+      ROUTER-A(config)#write
+      ROUTER-A(config)#exit
+      ROUTER-A#show ip interface brief
+      ROUTER-A#show ip route
+   
+   2. Dari ROUTER-B ke ROUTER-A (PC-3 dan PC-2)
+      ROUTER-B#config terminal
+      ROUTER-B(config)#ip route 20.100.77.0 255.255.255.224 192.134.222.1  
+      ROUTER-B(config)#ip route 65.154.195.0 255.255.255.224 192.134.222.1
+   
+      ROUTER-B(config)#exit
+      ROUTER-B(config)#write
+      ROUTER-B(config)#exit
+      ROUTER-B#show ip interface brief
+      ROUTER-B#show ip route
+
+E. Setting Router Encryption
+   1. ROUTER-A
+      ROUTER-A#config terminal
+      ROUTER-A(config)#crypto isakmp policy 1
+      ROUTER-A(config-isakmp)#encryption 3des
+      ROUTER-A(config-isakmp)#hash md5
+      ROUTER-A(config-isakmp)#authentication pre-share
+      ROUTER-A(config-isakmp)#group 2
+      ROUTER-A(config-isakmp)#lifetime 86400
+      ROUTER-A(config-isakmp)#exit
+      
+      ROUTER-A(config)#crypto isakmp key 6 bm7b address 40.167.150.2
+      ROUTER-A(config)#crypto ipsec transform-set BM esp-3des esp-md5-hmac
+      ROUTER-A(cfg-crypto-trans)#mode transport
+      ROUTER-A(cfg-crypto-trans)#exit
+      
+      ROUTER-A(config)#crypto ipsec profile new-profile
+      ROUTER-A(ipsec-profile)#set security-association lifetime seconds 86400
+      ROUTER-A(ipsec-profile)#set transform-set BM
+      ROUTER-A(ipsec-profile)#exit
+      
+      ROUTER-A(config)#interface Tunnel 0
+      ROUTER-A(config)#tunnel protection ipsec profile new-profile
+      
+      ROUTER-A(config-if)#exit
+      ROUTER-A(config)#write
+      ROUTER-A(config)#exit
+      ROUTER-A#show ip interface brief
+      ROUTER-A#show ip route
+      ROUTER-A#show crypto session
+     
+   2. ROUTER-B
+      ROUTER-B#config terminal
+      ROUTER-B(config)#crypto isakmp policy 1
+      ROUTER-B(config-isakmp)#encryption 3des
+      ROUTER-B(config-isakmp)#hash md5
+      ROUTER-B(config-isakmp)#authentication pre-share
+      ROUTER-B(config-isakmp)#group 2
+      ROUTER-B(config-isakmp)#lifetime 86400
+      ROUTER-B(config-isakmp)#exit
+      
+      ROUTER-B(config)#crypto isakmp key 6 bm7b address 35.192.125.2
+      ROUTER-B(config)#crypto ipsec transform-set BM esp-3des esp-md5-hmac
+      ROUTER-B(cfg-crypto-trans)#mode transport
+      ROUTER-B(cfg-crypto-trans)#exit
+      
+      ROUTER-B(config)#crypto ipsec profile new-profile
+      ROUTER-B(ipsec-profile)#set security-association lifetime seconds 86400
+      ROUTER-B(ipsec-profile)#set transform-set BM
+      ROUTER-B(ipsec-profile)#exit
+      
+      ROUTER-B(config)#interface Tunnel 0
+      ROUTER-B(config)#tunnel protection ipsec profile new-profile
+      
+      ROUTER-B(config-if)#exit
+      ROUTER-B(config)#write
+      ROUTER-B(config)#exit
+      ROUTER-B#show ip interface brief
+      ROUTER-B#show ip route
+      ROUTER-B#show crypto session
+
+E. Disable VPN or Tunnel Protection
+   ROUTER-A
+   ROUTER-A#config terminal
+   ROUTER-A(config)#int tunnel
+   ROUTER-A(config)#no tunnel protection ipsec profile new-profile
+   ROUTER-A(config)#write
+   ROUTER-A(config)#exit
+   ROUTER-A#show crypto session
+   
+   ROUTER-B
+   ROUTER-B#config terminal
+   ROUTER-B(config)#int tunnel
+   ROUTER-B(config)#no tunnel protection ipsec profile new-profile
+   ROUTER-B(config)#write
+   ROUTER-B(config)#exit
+   ROUTER-B#show crypto session  
+   
+G. Setting PC
+   NETWORK-1
+   PC1>ip 20.100.77.25/27 20.100.77.1
+   PC1>show ip
+   PC1>save
+   
+   NETWORK-2
+   PC2>ip 65.154.195.18/27 65.154.195.1 
+   PC2>show ip
+   PC2>save
+   
+   NETWORK-3
+   PC3>ip 80.136.10.30/27 80.136.10.1 
+   PC3>show ip   
+   PC3>save
+   
+   NETWORK-4
+   PC4>ip 49.127.25.8/27 49.127.25.1  
+   PC4>show ip
+   PC4>save
+
+
+
