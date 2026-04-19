@@ -1,0 +1,51 @@
+Belajar Membuat IPv6 (DHCP IPv6)
+
+Menghubungkan dua jaringan interface yang berbeda menggunakan IPv6 --> (ipv6 unicast-routing)  
+- Interface 0/0 1000::1/64 (5f30:4c72:57a6:1f47:2d63:6ff7:85a1:00001/64)
+- Interface 0/1 1000::2/64 (5f30:4c75:57a6:1f47:2d63:6ff7:85a1:00002/64)
+
+Router yang digunakan : Router Cisco 3620
+
+A. Setting Router-A  
+   - Interface 0/0
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 1/0
+     R1(config-if)#ipv6 address 5f30:4c72:57a6:1f47:2d63:6ff7:85a1:00001/64 atau (5f30::1/64)
+     R1(config-if)#ipv6 enable
+     R1(config-if)#no shutdown
+     R1(config-if)#exit
+     R1(config)#write
+     R1(config)#exit
+     R1#show ipv6 interface brief
+     R1#show ipv6 route
+   
+   - Interface 0/1
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 0/1
+     R1(config)#ipv6 address 5f30:4c75:57a6:1f47:2d63:6ff7:85a1:00002/64 atau (5f30::2/64)
+     R1(config)#ipv6 enable
+     R1(config)#no shutdown
+     R1(config-if)#exit
+     R1(config)#write
+     R1(config)#exit
+     R1#show ipv6 interface brief
+     R1#show ipv6 route
+   
+B. Setting PC
+   PC-1
+   PC1>show ipv6
+   PC1>ping ipv6 address
+   
+   PC-2 
+   PC2>show ipv6
+   PC2>ping ipv6 address
+   
+   PC-3 
+   PC2>show ipv6
+   PC2>ping ipv6 address
+   
+   PC-4 
+   PC2>show ipv6
+   PC2>ping ipv6 address
