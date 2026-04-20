@@ -1,0 +1,107 @@
+Membuat Jaringan menggunakan Protokol RIP (Routing Information Protocol)
+
+Routing Information Protocol (RIP) adalah protokol vektor jarak yang menggunakan jumlah hop sebagai metrik utamanya. RIP mendefinisikan bagaimana router harus berbagi informasi ketika memindahkan lalu lintas di antara kelompok jaringan area lokal yang saling berhubungan.
+
+Router yang digunakan : Router Cisco 3660
+
+A. Setting Router-1 
+   - Interface 1/0
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 1/0
+     R1(config-if)#ipv6 address 5b6c:f8d4:f787:e5a0:3af8:62b3:93a2:00001/64 atau (5b6c::1/64)
+     R1(config-if)#ipv6 enable
+     R1(config-if)#no shutdown
+     R1(config-if)#exit
+     R1(config)#write
+     R1(config)#exit
+     R1#show ipv6 interface brief
+     R1#show ipv6 route
+   
+   - Interface 1/1
+     R1#config terminal     
+     R1(config)#ipv6 unicast-routing 
+     R1(config)#interface ethernet 1/1
+     R1(config-if)#ipv6 address 5b6a:f3d5:e62b:04a5:4f02:5d71:68d1:00001/64 atau (5b6a::1/64)
+     R1(config-if)#ipv6 enable
+     R1(config-if)#no shutdown
+     R1(config-if)#exit
+     R1(config)#write
+     R1(config)#exit
+     R1#show ipv6 interface brief
+     R1#show ipv6 route
+     
+   - R1#config terminal
+     R1(config)#ipv6 router rip protokolName
+     R1(config)#interface ethernet 1/0
+     R1(config-if)#ipv6 rip protokolName enable
+     R1(config-if)#interface ethernet 1/1
+     R1(config-f)#ipv6 rip protokolName enable
+     R1(config-if)#exit
+     R1(config)#write
+     R1(config)#exit
+     R1#show ipv6 interface brief
+     R1#show ipv6 route
+   
+   
+B. Setting Router-2 
+   - Interface 1/0
+     R2#config terminal     
+     R2(config)#ipv6 unicast-routing 
+     R2(config)#interface ethernet 1/0
+     R2(config-if)#ipv6 address 5b6c:f8d9:f787:e5a0:3af8:62b3:93a2:00001/64 atau (5b6c::2/64)
+     R2(config-if)#ipv6 enable
+     R2(config-if)#no shutdown
+     R2(config-if)#exit
+     R2(config)#write
+     R2(config)#exit
+     R2#show ipv6 interface brief
+     R2#show ipv6 route
+   
+   - Interface 1/1
+     R2#config terminal     
+     R2(config)#ipv6 unicast-routing 
+     R2(config)#interface ethernet 1/1
+     R2(config-if)#ipv6 address 5c6f:f4d9:f82d:057f:35a6:873e:66f1:00001/64 atau (5c6f::1/64)
+     R2(config-if)#ipv6 enable
+     R2(config-if)#no shutdown
+     R2(config-if)#exit
+     R2(config)#write
+     R2(config)#exit
+     R2#show ipv6 interface brief
+     R2#show ipv6 route
+     
+   - R2#config terminal
+     R2(config)#ipv6 router rip protokolName
+     R2(config)#interface ethernet 1/0
+     R2(config-if)#ipv6 rip protokolName enable
+     R2(config-if)#interface ethernet 1/1
+     R2(config-if)#ipv6 rip protokolName enable
+     R2(config-if)#exit
+     R2(config)#write
+     R2(config)#exit
+     R2#show ipv6 interface brief
+     R2#show ipv6 route
+     
+   
+   
+B. Setting PC
+   PC-1
+   PC1>show ipv6
+   PC1>ip 5b6a::10/64 5b6a::1
+   PC1>ping ipv6 5b6a::20 / ping 5b6a::20
+   
+   PC-3
+   PC1>show ipv6
+   PC1>ip 5b6a::20/64 5b6a::1
+   PC1>ping ipv6 5b6a::10 / ping 5b6a::10
+   
+   PC-4
+   PC1>show ipv6
+   PC1>ip 5c6f::15/64 5c6f::1
+   PC1>ping ipv6 5c6f::35 / ping 5c6f::35
+   
+   PC-2
+   PC1>show ipv6
+   PC1>ip 5c6f::35/64 5c6f::1
+   PC1>ping ipv6 5c6f::15 / ping 5c6f::15
