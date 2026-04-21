@@ -1,0 +1,124 @@
+Membuat Jaringan VLAN Server Dan Client
+Menggunakan Router Cisco 3640
+
+A. Setting Router (Router 1)
+   R1#config terminal 
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#ip address 169.254.187.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting Domain Server (Router 2)
+   R2#config terminal 
+   R2(config)#interface ethernet 0/0
+   R2(config-if)#no shutdown
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   R2#config terminal
+   R2(config)#interface ethernet 0/0
+   R2(config-if)#ip address 169.254.187.10 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+C. Setting VLAN (Router 2)
+   VLAN 100
+   R2#config terminal 
+   R2(config)#interface ethernet 1/0
+   R2(config-if)#interface Ethernet 1/0.50
+   R2(config-subif)#encapsulation dot1q 100
+   R2(config-if)#ip address 192.109.50.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   VLAN 200
+   R2#config terminal 
+   R2(config)#interface ethernet 2/0
+   R2(config-if)#interface ethernet 2/0.100
+   R2(config-subif)#encapsulation dot1q 200
+   R2(config-if)#ip address 192.109.100.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   VLAN 300
+   R2#config terminal 
+   R2(config)#interface ethernet 2/0
+   R2(config-if)#interface ethernet 2/0.150
+   R2(config-subif)#encapsulation dot1q 300
+   R2(config-if)#ip address 192.109.150.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   VLAN 400
+   R2#config terminal 
+   R2(config)#interface ethernet 1/0
+   R2(config-if)#interface Ethernet 1/0.200
+   R2(config-subif)#encapsulation dot1q 400
+   R2(config-if)#ip address 192.109.200.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+
+D. Setting PC
+   PC-Server   
+   PC1>ip 169.254.187.136/24 169.254.187.1
+   PC1>show ip
+   PC1>save
+   
+   PC5>ip 169.254.187.139/24 169.254.187.1
+   PC5>show ip
+   PC5>save
+   
+   PC-CLIENT ETHERNET 1/0
+   VLAN 100
+   PC4>ip 192.109.50.87/24 192.109.50.1
+   PC4>show ip
+   PC4>save
+   
+   PC3>ip 192.109.50.64/24 192.109.50.1
+   PC3>show ip
+   PC3>save
+   
+   VLAN 400
+   PC7>ip 192.109.200.53/24 192.109.200.1
+   PC7>show ip
+   PC7>save
+   
+   PC10>ip 192.109.200.74/24 192.109.200.1
+   PC10>show ip
+   PC10>save
+   
+   PC-CLIENT ETHERNET 2/0
+   VLAN 200
+   PC2>ip 192.109.100.41/24 192.109.100.1
+   PC2>show ip
+   PC2>save
+   
+   PC8>ip 192.109.100.58/24 192.109.100.1
+   PC8>show ip
+   PC8>save
+   
+   VLAN 300
+   PC6>ip 192.109.150.119/24 192.109.150.1
+   PC6>show ip
+   PC6>save
+   
+   PC9>ip 192.109.150.147/24 192.109.150.1
+   PC9>show ip
+   PC9>save
+   
+ 
+ 
