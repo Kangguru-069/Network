@@ -1,0 +1,118 @@
+Membuat Jaringan VLAN Server Dan Client
+Menggunakan Router Cisco 3640
+
+A. Setting Router (Router 1)
+   R1#config terminal 
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#no shutdown
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+   R1#config terminal
+   R1(config)#interface ethernet 0/0
+   R1(config-if)#ip address 10.190.231.1 255.255.255.0
+   R1(config-if)#exit
+   R1(config)#exit
+   R1#show ip interface brief
+   
+B. Setting Domain Server (Router 2)
+   R2#config terminal 
+   R2(config)#interface ethernet 0/0
+   R2(config-if)#no shutdown
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   R2#config terminal
+   R2(config)#interface ethernet 0/0
+   R2(config-if)#ip address 10.190.231.15 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+   R2#config terminal
+   R2(config)#interface ethernet 1/0
+   R2(config-if)#ip address 129.57.185.1 255.255.255.0
+   R2(config-if)#exit
+   R2(config)#exit
+   R2#show ip interface brief
+   
+C. Setting Client Server (Router 3)
+   R3#config terminal 
+   R3(config)#interface ethernet 1/0
+   R3(config-if)#no shutdown
+   R3(config-if)#exit
+   R3(config)#exit
+   R3#show ip interface brief
+   
+   R3#config terminal
+   R3(config)#interface ethernet 1/0
+   R3(config-if)#ip address 129.57.185.15 255.255.255.0
+   R3(config-if)#exit
+   R3(config)#exit
+   R3#show ip interface brief
+   
+C. Setting VLAN (Router 3)
+   INTERFACE 2/0
+   R3#config terminal 
+   R3(config)#interface ethernet 2/0
+   R3(config-if)#ip address 172.139.137.1 255.255.255.0
+   R3(config-if)#exit
+   R3(config)#exit
+   R3#show ip interface brief
+   
+   INTERFACE 3/0
+   R3#config terminal 
+   R3(config)#interface ethernet 3/0
+   R3(config-if)#ip address 172.139.187.1 255.255.255.0
+   R3(config-if)#exit
+   R3(config)#exit
+   R3#show ip interface brief
+
+D. Setting PC
+   PC-Server   
+   PC1>ip 10.190.231.135/24 10.190.231.1
+   PC1>show ip
+   PC1>save
+   
+   PC9>ip 10.190.231.165/24 10.190.231.1
+   PC9>show ip
+   PC9>save
+   
+   PC-CLIENT ETHERNET 2/0
+   PC4>ip 172.139.137.63/24 172.139.137.1
+   PC4>show ip
+   PC4>save
+   
+   PC10>ip 172.139.137.49/24 172.139.137.1
+   PC10>show ip
+   PC10>save
+   
+   PC5>ip 172.139.137.182/24 172.139.137.1
+   PC5>show ip
+   PC5>save
+   
+   PC3>ip 172.139.137.106/24 172.139.137.1
+   PC3>show ip
+   PC3>save
+   
+   PC-CLIENT ETHERNET 3/0
+   PC7>ip 172.139.187.113/24 172.139.187.1
+   PC7>show ip
+   PC7>save
+   
+   PC6>ip 172.139.187.37/24 172.139.187.1
+   PC6>show ip
+   PC6>save
+   
+   PC2>ip 172.139.187.142/24 172.139.187.1
+   PC2>show ip
+   PC2>save
+   
+   PC8>ip 172.139.187.96/24 172.139.187.1
+   PC8>show ip
+   PC8>save
+   
+ 
+ 
